@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Jan Matthew Tanchanco</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Jan Matthew Tanchanco</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profilepic2.png" alt="Jan Matthew Tanchanco profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Jan Matthew Tanchanco</h1>
+        <p class="section__text__p2">Frontend Developer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Jan Matthew A. Tanchanco.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/jan-matthew-tanchanco-a2b13027a/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/8Matthaeus8'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/profilepic5.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>Frontend Development <br />Quality Assurance Analyst</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p> Bachelor of Science in Information Technology<br />Batangas State University<br />2022-2026</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              I am a passionate and graduated IT professional specializing in Frontend Development. 
+              With a Bachelor of Science in Information Technology, I possess a robust foundational knowledge in both 
+              client-side and server-side technologies, including HTML, CSS, C++, Dart, and jQuery.
+
+              My approach to development is rooted in the principles of scalability, security, and clean code. 
+              Throughout my academic career and project work, I have gained hands-on experience in the entire software 
+              development lifecycle from conceptual design and implementation to rigorous unit testing and final deployment.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='#skills'"
+      />
+    </section>
+    <section id="skills">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Skills</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>CSS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Dart</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>C++</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Material UI</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Backend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>MySQL</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Node JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Express JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Git</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='#projects'"
+      />
+    </section>
+   <!-- PROJECTS SECTION -->
+<section id="projects">
+  <p class="section__text__p1">Browse My Recent</p>
+  <h1 class="title">Capstone Project</h1>
+  <h3 class="experience-sub-title" style="text-align: center; margin-bottom: 2rem;">Rescuer Side</h3>
+  <div class="experience-details-container">
+    
+    <div class="about-containers">
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/Registration1.jpg" alt="Project 1" class="project-img" data-full-image="./assets/Registration.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Login</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'Registration (Login)\nThis project showcases the primary user authentication module for the system. It features secure credential input, a password visibility toggle for usability, and a dedicated password recovery flow. Built to serve both Admin and Responder roles, its design adheres strictly to the Data Privacy Act of 2012 principles, guaranteeing the security of personal access data.')">
+            Description
+          </button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/Home1.jpg" alt="Project 2" class="project-img" data-full-image="./assets/Home.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Home</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'Home (Map View)\nThis project developed the Rescuer Home Screen (iLocate Map View), which is the primary interface for situational awareness. It features a map displaying the rescuer\'s live location alongside incoming SOS coordinates, ensuring rapid navigation. A prominent Active Rescue Alerts Notification provides a quick overview of incidents, streamlining the process for responders to access detailed Incident Alert Pages instantly.')">
+            Description
+          </button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/alerts.1.jpg" alt="Project 3" class="project-img" data-full-image="./assets/alerts.1.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Alerts</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'SOS Alerts (Dashboard)\nThis project involves the Emergency Response Dashboard, the central hub for managing incoming distress signals. Designed for speed, it prominently displays crucial incident details (like time and date) and provides rescuers with two critical action buttons: View, to instantly generate directions to the SOS location, and Respond, to accept and initiate the rescue effort. The dashboard is quickly accessible via the dedicated Incident Alert button at the bottom of the screen.')">
+            Description
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-containers">
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/members.1.jpg" alt="Project 4" class="project-img" data-full-image="./assets/members.1.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Team</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Rescuer Team Member Interface, which presents the name of the assigned rescue team along with a list of its members. This interface is accessible via the Rescue Team Button, located at the bottom of the screen, providing responders with quick access to team composition and coordination details.')">
+            Description
+          </button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/logs.1.jpg" alt="Project 5" class="project-img" data-full-image="./assets/logs.1.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Logs</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Rescuer Logs Interface, which displays a comprehensive log of all rescue activities and incidents. This interface is accessible via the Rescue Logs Button, located at the bottom of the screen, providing responders with a detailed history of their operations and performance metrics.')">
+            Description
+          </button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/settings.1.jpg" alt="Project 6" class="project-img" data-full-image="./assets/settings.1.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Settings</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Rescuer Settings Interface is a secure hub where users can manage their account credentials and app preferences in one place. It allows for easy contact detail reviews and password updates, while providing quick access to essential legal policies and terms of use. With integrated logout functionality and persistent navigation, the interface ensures users can manage their data and session security with ease.')">
+            Description
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="experience-sub-title" style="text-align: center; margin-bottom: 2rem; margin-top: 4rem;">Admin Side</h3>
+
+  <div class="experience-details-container">
+    
+    <div class="about-containers">
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/h.admin.png" alt="Admin Project 1" class="project-img" data-full-image="./assets/h.admin.png" />
+        </div>
+        <h2 class="experience-sub-title project-title">Home</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The real-time monitoring feature allows administrators to track responder locations via GPS markers on a map interface. Active rescuers are marked in green, inactive ones in yellow, and the rescuee in red. This system enables administrators to track movements, identify coverage gaps, and assign tasks based on proximity to distress calls. By ensuring rescuers are strategically positioned, the tool enhances operational safety and improves the efficiency of disaster response coordination.')">Description</button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/alerts.admin.jpg" alt="Admin Project 2" class="project-img" data-full-image="./assets/alerts.admin.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Alerts</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Admin Alert Dashboard, which allows administrators to manage incoming SOS signals. It includes a View Button that opens the map view along with detailed information about the incident. Additionally, the Assign Button enables the admin to assign the selected incident to a specific rescue team for response')">Description</button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/assign.admin.jpg" alt="Admin Project 3" class="project-img" data-full-image="./assets/assign.admin.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Assign</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Admin Assign Incident Interface, which includes key  elements for assigning a rescue task. The Group Selection Dropdown allows the admin to choose the rescue team to handle the specific incident. The interface also includes a Confirm Button to finalize the assignment and a Cancel Button to abort the action and return to the previous screen.')">Description</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-containers">
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/team.admin.jpg" alt="Admin Project 4" class="project-img" data-full-image="./assets/team.admin.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Team</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Admin Team Management Interface, which allows administrators to manage rescue teams. It includes a View Button that opens the team details and a Manage Button to edit or remove team members.')">Description</button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/add.admin.jpg" alt="Admin Project 5" class="project-img" data-full-image="./assets/add.admin.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Add Team</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Admin Add Team Interface, which allows administrators to add new rescue teams. It includes fields for team name and team members, along with a Submit Button to finalize the addition and a Cancel Button to abort the action.')">Description</button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/logs.admin.jpg" alt="Admin Project 6" class="project-img" data-full-image="./assets/logs.admin.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Logs</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'the Incident Monitoring Interface, showing key information for each incident. Each entry provides a real-time status such as In Progress or Resolved for easy tracking. The administrator can quickly locate specific incidents using the Search Bar and Filter Option. Additionally, the Archive button enables administrators to move completed or inactive incidents to the archived list for record-keeping purposes.')">Description</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="experience-sub-title" style="text-align: center; margin-bottom: 2rem; margin-top: 4rem;">Modals</h3>
+
+  <div class="experience-details-container">
+    <div class="about-containers">
+      
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/login.other.jpg" alt="Login Success Modal" class="project-img" data-full-image="./assets/login.other.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Login</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Success Dialog serves as an immediate feedback mechanism after a user provides valid credentials. It features a green-themed layout that welcomes the user, confirms their specific role, and ensures they are aware of their successful session start before entering the dashboard.')">Description</button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/status.other.jpg" alt="Action Modal" class="project-img" data-full-image="./assets/status.other.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Status</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Status Update Dialog is a critical confirmation step used when assigning incidents to a specific rescue group. It includes a cautionary, This action cannot be undone, preventing accidental assignments and ensuring that administrators are certain before deploying resources to a distress location.')">Description</button>
+        </div>
+      </div>
+
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/logout.other.jpg" alt="System Alert" class="project-img" data-full-image="./assets/logout.other.jpg" />
+        </div>
+        <h2 class="experience-sub-title project-title">Logout</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
+          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Logout Confirmation Dialog acts as a security checkpoint to prevent accidental session termination. By requiring the user to confirm their intent to leave, it protects ongoing work and ensures that the user is intentionally ending their access to the sensitive data within the application.')">Description</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#contact'" />
+</section>
+
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:examplemail@gmail.com">jmtanchanco.dev@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/jan-matthew-tanchanco-a2b13027a/">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2025 Jan Matthew Tanchanco. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
