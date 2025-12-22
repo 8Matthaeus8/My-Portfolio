@@ -443,7 +443,7 @@ footer p {
   height: auto;
   max-width: 80vw;
   max-height: 60vh;
-  object-fit: contain; /* Full image is shown when clicked */
+  object-fit: contain;
   border-radius: 10px;
 }
 
@@ -456,21 +456,38 @@ footer p {
   color: #333;
 }
 
-/* Specific styling for the Description Modal */
 .description-container {
   background: white;
-  padding: 40px; /* Increased padding for readability */
+  padding: 40px;
   border-radius: 12px;
-  max-width: 600px; /* Limits width so text doesn't stretch too far */
+  max-width: 600px;
   width: 80%;
   max-height: 80vh;
-  overflow-y: auto; /* Allows scrolling if text is long */
+  overflow-y: auto;
   position: relative;
-  text-align: left; /* Aligns text to the left */
+  text-align: left;
 }
 
 .description-container p {
   line-height: 1.6;
   color: #333;
   font-size: 1.1rem;
+}
+
+.icon.arrow {
+  display: block;
+  margin: 2rem auto;
+  cursor: pointer;
+  height: 2rem;
+  transition: all 0.3s ease;
+}
+
+.icon.arrow:hover {
+  transform: scale(1.2); 
+  opacity: 0.7;
+}
+
+#skills {
+  padding-bottom: 5rem;
+  position: relative;
 }
