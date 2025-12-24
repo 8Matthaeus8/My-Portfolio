@@ -36,21 +36,21 @@ nav,
 nav {
   justify-content: space-around;
   align-items: center;
-  height: 12vh; /* Slightly shorter for a sleeker look */
+  height: 12vh;
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-  backdrop-filter: blur(10px); /* Blurs the content behind it */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 1000;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); /* Very soft shadow */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-links {
   gap: 3rem;
   list-style: none;
-  font-size: 1.1rem; /* Slightly smaller is often more professional */
+  font-size: 1.1rem;
   font-weight: 500;
 }
 
@@ -146,61 +146,100 @@ a:hover {
 /* SECTIONS */
 
 section {
-  padding-top: 4vh;
-  height: 96vh;
+  padding-top: 15vh;
+  padding-bottom: 5vh;
   margin: 0 10rem;
   box-sizing: border-box;
-  min-height: fit-content;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-container {
   display: flex;
 }
 
-/* PROFILE SECTION */
+/* --- PROFILE (HOME) SECTION --- */
 
 #profile {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 5rem;
-  height: 80vh;
+  align-items: center;
+  gap: 2rem;
+  min-height: 80vh;
+  margin: 0 auto;
 }
 
-.section__pic-container {
+#profile .section__pic-container {
   display: flex;
   height: 400px;
   width: 400px;
-  margin: auto 0;
+  margin: 0 auto;
+}
+
+#profile .section__pic-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .section__text {
-  align-self: center;
   text-align: center;
-}
-
-.section__text p {
-  font-weight: 600;
-}
-
-.section__text__p1 {
-  text-align: center;
-}
-
-.section__text__p2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-.title {
-  font-size: 3rem;
-  text-align: center;
-}
-
-#socials-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* --- ABOUT SECTION --- */
+
+#about {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about .section-container {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  height: auto;
+  align-items: flex-start;
+  width: 100%;
+}
+
+#about .section__pic-container {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+}
+
+#about .about-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.about-details-container {
   justify-content: center;
-  margin-top: 1rem;
-  gap: 1rem;
+  flex-direction: column;
+  display: flex;
+  flex: 1;
+}
+
+.about-containers {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.text-container {
+  text-align: left;
 }
 
 /* ICONS */
@@ -350,9 +389,9 @@ article .icon {
 .project-img {
   border-radius: 2rem;
   width: 90%;
-  height: 350px;       /* Fixed height for uniformity */
-  object-fit: cover;   /* Crops the image to fill the space (Zoom effect) */
-  object-position: top;/* Keeps the top part of the image visible */
+  height: 350px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .project-title {
@@ -364,6 +403,21 @@ article .icon {
   color: black;
   border-color: rgb(163, 163, 163);
 }
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1.5rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 
 /* CONTACT */
 
@@ -496,7 +550,7 @@ footer p {
 .skills-row {
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* Aligns all ovals to a common bottom baseline */
+  align-items: flex-end;
   flex-wrap: wrap;
   gap: 2.5rem;
   width: 100%;
@@ -511,12 +565,10 @@ footer p {
 }
 
 .skill-oval {
-  /* Calculation: Base height 180px + (variable percentage * multiplier) */
-  /* This ensures even low percentages have enough space for text */
   height: calc(180px + (var(--percent) * 0.8px)); 
   width: 140px;
   background: white;
-  border-radius: 70px; /* Half of width creates the perfect oval ends */
+  border-radius: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;

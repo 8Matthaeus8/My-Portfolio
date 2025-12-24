@@ -1,7 +1,11 @@
 @media screen and (max-width: 1400px) {
   #profile {
-    height: 83vh;
-    margin-bottom: 6rem;
+    /* Changed to 100vh to ensure it fills the entire screen height */
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .about-containers {
     flex-wrap: wrap;
@@ -23,9 +27,16 @@
   .experience-details-container {
     margin-top: 2rem;
   }
-  #profile,
-  .section-container {
-    display: block;
+  .section__pic-container {
+    width: 275px; 
+    height: 275px; /* Ensure height matches width exactly */
+    margin: 0 auto 2rem;
+  }
+  
+  #profile {
+    height: auto; /* Allow it to grow on mobile if content is long */
+    min-height: 100vh; 
+    padding-top: 15vh; /* Gives space for the nav */
   }
   section,
   .section-container {
@@ -33,6 +44,8 @@
   }
   section {
     margin: 0 5%;
+    /* Add padding to prevent sections from touching */
+    padding-bottom: 5rem; 
   }
   .section__pic-container {
     width: 275px;
@@ -42,7 +55,6 @@
   .about-containers {
     margin-top: 0;
   }
-  /* Updated from circle to oval */
   .skill-oval {
     width: 125px;
     height: calc(160px + (var(--percent) * 0.7px));
@@ -56,11 +68,14 @@
 @media screen and (max-width: 600px) {
   #contact,
   footer {
-    height: 40vh;
+    height: auto;
+    padding: 2rem 0;
   }
   #profile {
-    height: 83vh;
-    margin-bottom: 0;
+    /* Guaranteed full screen height on mobile */
+    min-height: 100vh;
+    height: auto;
+    padding-top: 15vh;
   }
   article {
     font-size: 1rem;
@@ -93,9 +108,9 @@
     text-align: center;
   }
   .section__pic-container {
-    width: auto;
-    height: 46vw;
-    justify-content: center;
+    width: 200px;
+    height: 200px; 
+    margin: 0 auto 2rem;
   }
   .section__text__p2 {
     font-size: 1.25rem;
@@ -106,7 +121,6 @@
   .text-container {
     text-align: justify;
   }
-  /* Mobile Oval Scaling */
   .skill-oval {
     width: 110px;
     height: calc(140px + (var(--percent) * 0.6px)); 
