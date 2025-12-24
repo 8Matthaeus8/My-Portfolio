@@ -70,27 +70,34 @@ function viewDescription(button, descriptionText) {
       document.body.removeChild(overlay);
     }
   });
-
-  // ScrollReveal Animations
-  const sr = ScrollReveal({
-    origin: 'bottom',
-    distance: '60px',
-    duration: 1000,
-    delay: 200,
-    reset: false // Set to true if you want it to animate every time you scroll up/down
-  });
-
-  // Reveal the section titles
-  sr.reveal('.section__text__p1, .title', { interval: 100 });
-
-  // Reveal the skill ovals with a staggered sequence
-  sr.reveal('.skill-card', { 
-    interval: 150, 
-    distance: '100px',
-    scale: 0.85,
-    easing: 'cubic-bezier(0.5, 0, 0, 1)' 
-  });
-
-  // Reveal project cards
-  sr.reveal('.details-container', { interval: 200 });
 }
+
+// Wait for the document to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Check if ScrollReveal is defined (prevents errors if the CDN fails)
+    if (typeof ScrollReveal !== 'undefined') {
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '60px',
+            duration: 1000,
+            delay: 200,
+            reset: false
+        });
+
+        // Reveal section titles first
+        sr.reveal('.section__text__p1, .title', { interval: 100 });
+
+        // Reveal the vertical ovals with a staggered upward "growth" effect
+        sr.reveal('.skill-card', { 
+            interval: 150, 
+            distance: '100px',
+            scale: 0.85,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            viewFactor: 0.2 // Animates when 20% of the element is visible
+        });
+
+        // Reveal project cards
+        sr.reveal('.details-container', { interval: 200 });
+    }
+});
