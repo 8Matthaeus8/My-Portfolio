@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -120,7 +121,6 @@ a:hover {
   font-size: 1.5rem;
   color: black;
   text-decoration: none;
-  transition: all 0.3 ease-in-out;
 }
 
 .menu-links li {
@@ -149,7 +149,6 @@ section {
   padding-top: 15vh;
   padding-bottom: 5vh;
   margin: 0 10rem;
-  box-sizing: border-box;
   min-height: 85vh;
   display: flex;
   flex-direction: column;
@@ -188,11 +187,7 @@ section {
 
 .section__text {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-
 
 /* --- ABOUT SECTION --- */
 
@@ -207,7 +202,6 @@ section {
   display: flex;
   flex-direction: row;
   gap: 4rem;
-  height: auto;
   align-items: flex-start;
   width: 100%;
 }
@@ -225,31 +219,48 @@ section {
   border-radius: 2rem;
 }
 
-/* Ensure the parent allows children to start from the left */
 .about-details-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  flex: 1;
+}
+
+.about-containers {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
   width: 100%;
 }
 
-/* Paragraph keeps its normal flow */
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: white;
+  border-radius: 2rem;
+  border: 1px solid rgb(163, 163, 163);
+  text-align: center;
+}
+
 .text-container {
   width: 100%;
   margin-bottom: 2rem;
   text-align: justify;
 }
 
-/* Update the wrapper to span the full section width */
+/* --- EXPERTISE & EDUCATION WRAPPER --- */
+
 .expertise-education-wrapper {
   display: flex;
   justify-content: space-between;
   gap: 4rem;
-  margin: 4rem 0 0 0; /* Align with the left edge of the section content */
-  width: 100%;
+  margin-top: 3rem;
+  width: 100%; /* Spans full section width to align with left image edge */
 }
 
-/* Ensure headings are left-aligned now that they moved */
+.info-column {
+  flex: 1;
+}
+
 .sub-title-med {
   font-size: 1.75rem;
   font-weight: 600;
@@ -257,21 +268,23 @@ section {
   text-align: left;
 }
 
-.info-column {
-  flex: 1;
-}
+/* Timeline Components */
 
-/* Timeline Vertical Line styling remains consistent */
 .timeline-v2 {
   position: relative;
   padding-left: 30px;
   border-left: 2px solid #e3e3e3;
-  margin-left: 10px; /* Aligns the line better with text */
+  margin-left: 10px;
+}
+
+.timeline-v2-item {
+  position: relative;
+  margin-bottom: 2.5rem;
 }
 
 .timeline-v2-marker {
   position: absolute;
-  left: -37px;
+  left: -38px;
   top: 25px;
   width: 14px;
   height: 14px;
@@ -279,6 +292,46 @@ section {
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+  z-index: 2;
+}
+
+.timeline-v2-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+/* Card Header with Date Tag */
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-date-tag {
+  background: linear-gradient(135deg, #ff9800, #f6ae3d);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(255, 152, 0, 0.2);
+}
+
+.card-sub-header {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-detail-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 /* ICONS */
@@ -298,7 +351,6 @@ section {
 
 .btn {
   font-weight: 600;
-  transition: all 300ms ease;
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
@@ -332,96 +384,7 @@ section {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
-/* --- ABOUT SECTION --- */
-
-#about {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers titles and the final content block */
-}
-
-#about .section-container {
-  display: flex;
-  flex-direction: row;
-  gap: 4rem;
-  align-items: flex-start;
-  width: 100%;
-}
-
-/* Ensure the detail column takes up the remaining space */
-.about-details-container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-/* THE FIX: Centering the Expertise/Education area */
-.expertise-education-wrapper {
-  display: flex;
-  width: 100%;
-  max-width: 1100px; /* Limits width to match common web standards */
-  margin: 3rem auto 0 auto; /* Centers the whole block horizontally */
-  gap: 3rem;
-  justify-content: center;
-}
-
-.info-column {
-  flex: 1;
-  min-width: 300px;
-}
-
-.sub-title-med {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  text-align: center; /* Centers the header over the timeline */
-}
-
-/* Original Top Boxes (Experience & Education) */
-.about-containers {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  width: 100%;
-}
-
-.details-container {
-  padding: 1.5rem;
-  flex: 1;
-  background: white;
-  border-radius: 2rem;
-  border: 1px solid rgb(163, 163, 163);
-  text-align: center;
-}
-
-/* Timeline Cards Styling */
-.timeline-v2 {
-  position: relative;
-  padding-left: 25px;
-  border-left: 2px solid #e3e3e3;
-}
-
-.timeline-v2-marker {
-  position: absolute;
-  left: -33px; /* Centers the dot on the line */
-  top: 25px;
-  width: 14px;
-  height: 14px;
-  background-color: #ff9800;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0 0 8px rgba(255, 152, 0, 0.3);
-}
-
-.timeline-v2-card {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  text-align: left; /* Keeps content readable */
-}
-/* EXPERIENCE SECTION */
+/* EXPERIENCE SECTION (Detailed) */
 
 #experience {
   position: relative;
@@ -446,7 +409,6 @@ section {
   display: flex;
   text-align: initial;
   flex-wrap: wrap;
-  flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
 }
@@ -456,10 +418,6 @@ article {
   width: 10rem;
   justify-content: space-around;
   gap: 0.5rem;
-}
-
-article .icon {
-  cursor: default;
 }
 
 /* PROJECTS SECTION */
@@ -491,22 +449,7 @@ article .icon {
   border-color: rgb(163, 163, 163);
 }
 
-#socials-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-  gap: 1.5rem;
-}
-
-.btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-
-/* CONTACT */
+/* CONTACT SECTION */
 
 #contact {
   display: flex;
@@ -519,9 +462,8 @@ article .icon {
   display: flex;
   justify-content: center;
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  background: (250, 250, 250);
+  border: 1px solid rgb(163, 163, 163);
+  background: rgb(250, 250, 250);
   margin: 2rem auto;
   padding: 0.5rem;
 }
@@ -536,88 +478,6 @@ article .icon {
 
 .contact-info-container p {
   font-size: larger;
-}
-
-.contact-icon {
-  cursor: default;
-}
-
-.email-icon {
-  height: 2.5rem;
-}
-
-/* FOOTER SECTION */
-
-footer {
-  height: 26vh;
-  margin: 0 1rem;
-}
-
-footer p {
-  text-align: center;
-}
-
-/* Image Overlay */
-
-.image-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.full-image-container {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 90%;
-  max-height: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.full-image-container img {
-  width: auto;
-  height: auto;
-  max-width: 80vw;
-  max-height: 60vh;
-  object-fit: contain;
-  border-radius: 10px;
-}
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 32px;
-  cursor: pointer;
-  color: #333;
-}
-
-.description-container {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 80%;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
-  text-align: left;
-}
-
-.description-container p {
-  line-height: 1.6;
-  color: #333;
-  font-size: 1.1rem;
 }
 
 /* SKILLS SECTION - DYNAMIC OVAL DESIGN */
@@ -647,8 +507,6 @@ footer p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  transition: transform 0.3s ease;
 }
 
 .skill-oval {
@@ -663,7 +521,6 @@ footer p {
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   border: 1px solid rgb(240, 240, 240);
   padding: 1.5rem 0.5rem;
-  box-sizing: border-box;
   transition: all 0.3s ease;
   transform-origin: bottom;
 }
@@ -680,28 +537,19 @@ footer p {
   margin-bottom: 12px;
 }
 
-.skill-level {
-  font-size: 0.75rem;
-  color: rgb(120, 120, 120);
-  margin: 0;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
 .skill-name {
   font-size: 1.1rem;
   font-weight: 600;
   color: black;
-  margin: 4px 0;
 }
 
-.skill-percent {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #353535;
-  margin-top: 8px;
-  background: rgba(0,0,0,0.03);
-  padding: 2px 8px;
-  border-radius: 10px;
+/* FOOTER SECTION */
+
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
 }
