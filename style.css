@@ -472,3 +472,69 @@ footer p {
   padding-bottom: 5rem;
   position: relative;
 }
+
+/* SKILLS SECTION - CIRCULAR DESIGN */
+
+.skills-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.skills-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+}
+
+.skill-circle {
+  width: 150px;
+  height: 150px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Soft shadow for depth */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+  margin-bottom: 1rem;
+  border: 1px solid rgb(240, 240, 240);
+}
+
+.skill-icon {
+  height: 45px; /* Size for logos */
+  width: auto;
+  margin-bottom: 0.5rem;
+}
+
+.skill-percent {
+  font-weight: 600;
+  color: #353535;
+  font-size: 0.9rem;
+}
+
+.skill-card h3 {
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+}
+
+.skill-card p {
+  font-size: 0.85rem;
+  color: rgb(85, 85, 85);
+}
