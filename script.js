@@ -70,4 +70,27 @@ function viewDescription(button, descriptionText) {
       document.body.removeChild(overlay);
     }
   });
+
+  // ScrollReveal Animations
+  const sr = ScrollReveal({
+    origin: 'bottom',
+    distance: '60px',
+    duration: 1000,
+    delay: 200,
+    reset: false // Set to true if you want it to animate every time you scroll up/down
+  });
+
+  // Reveal the section titles
+  sr.reveal('.section__text__p1, .title', { interval: 100 });
+
+  // Reveal the skill ovals with a staggered sequence
+  sr.reveal('.skill-card', { 
+    interval: 150, 
+    distance: '100px',
+    scale: 0.85,
+    easing: 'cubic-bezier(0.5, 0, 0, 1)' 
+  });
+
+  // Reveal project cards
+  sr.reveal('.details-container', { interval: 200 });
 }

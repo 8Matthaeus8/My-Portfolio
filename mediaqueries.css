@@ -42,9 +42,11 @@
   .about-containers {
     margin-top: 0;
   }
-  .skill-circle {
-    width: 130px;
-    height: 130px;
+  /* Updated from circle to oval */
+  .skill-oval {
+    width: 125px;
+    height: calc(160px + (var(--percent) * 0.7px));
+    border-radius: 62.5px;
   }
   .skills-row {
     gap: 1.5rem;
@@ -104,21 +106,20 @@
   .text-container {
     text-align: justify;
   }
-  .skill-circle {
+  /* Mobile Oval Scaling */
+  .skill-oval {
     width: 110px;
-    height: 110px;
+    height: calc(140px + (var(--percent) * 0.6px)); 
+    border-radius: 55px;
   }
   .skill-icon {
-    height: 35px;
+    height: 30px;
   }
-  .skill-percent {
+  .skill-level {
+    font-size: 0.65rem;
+  }
+  .skill-name {
     font-size: 0.8rem;
-  }
-  .skill-card h3 {
-    font-size: 1rem;
-  }
-  .skills-row {
-    gap: 1rem;
   }
   #skills {
     height: fit-content;

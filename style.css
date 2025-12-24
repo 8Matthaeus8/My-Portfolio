@@ -468,12 +468,12 @@ footer p {
   font-size: 1.1rem;
 }
 
+/* SKILLS SECTION - DYNAMIC OVAL DESIGN */
+
 #skills {
   padding-bottom: 5rem;
   position: relative;
 }
-
-/* SKILLS SECTION - CIRCULAR DESIGN */
 
 .skills-wrapper {
   display: flex;
@@ -485,6 +485,7 @@ footer p {
 .skills-row {
   display: flex;
   justify-content: center;
+  align-items: flex-end; /* Aligns all ovals to a common bottom baseline */
   flex-wrap: wrap;
   gap: 2.5rem;
   width: 100%;
@@ -498,43 +499,59 @@ footer p {
   transition: transform 0.3s ease;
 }
 
-.skill-card:hover {
-  transform: translateY(-10px);
-}
-
-.skill-circle {
-  width: 150px;
-  height: 150px;
+.skill-oval {
+  /* Calculation: Base height 180px + (variable percentage * multiplier) */
+  /* This ensures even low percentages have enough space for text */
+  height: calc(180px + (var(--percent) * 0.8px)); 
+  width: 140px;
   background: white;
-  border-radius: 50%;
+  border-radius: 70px; /* Half of width creates the perfect oval ends */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* Soft shadow for depth */
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
-  margin-bottom: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   border: 1px solid rgb(240, 240, 240);
+  padding: 1.5rem 0.5rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  transform-origin: bottom;
+}
+
+.skill-card:hover .skill-oval {
+  transform: translateY(-8px);
+  border-color: #353535;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
 .skill-icon {
-  height: 45px; /* Size for logos */
+  height: 45px;
   width: auto;
-  margin-bottom: 0.5rem;
+  margin-bottom: 12px;
+}
+
+.skill-level {
+  font-size: 0.75rem;
+  color: rgb(120, 120, 120);
+  margin: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skill-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: black;
+  margin: 4px 0;
 }
 
 .skill-percent {
+  font-size: 0.85rem;
   font-weight: 600;
   color: #353535;
-  font-size: 0.9rem;
-}
-
-.skill-card h3 {
-  font-size: 1.1rem;
-  margin-top: 0.2rem;
-}
-
-.skill-card p {
-  font-size: 0.85rem;
-  color: rgb(85, 85, 85);
+  margin-top: 8px;
+  background: rgba(0,0,0,0.03);
+  padding: 2px 8px;
+  border-radius: 10px;
 }
