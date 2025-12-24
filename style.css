@@ -225,21 +225,60 @@ section {
   border-radius: 2rem;
 }
 
+/* Ensure the parent allows children to start from the left */
 .about-details-container {
-  justify-content: center;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Paragraph keeps its normal flow */
+.text-container {
+  width: 100%;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+/* Update the wrapper to span the full section width */
+.expertise-education-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  margin: 4rem 0 0 0; /* Align with the left edge of the section content */
+  width: 100%;
+}
+
+/* Ensure headings are left-aligned now that they moved */
+.sub-title-med {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.info-column {
   flex: 1;
 }
 
-.about-containers {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
+/* Timeline Vertical Line styling remains consistent */
+.timeline-v2 {
+  position: relative;
+  padding-left: 30px;
+  border-left: 2px solid #e3e3e3;
+  margin-left: 10px; /* Aligns the line better with text */
 }
 
-.text-container {
-  text-align: left;
+.timeline-v2-marker {
+  position: absolute;
+  left: -37px;
+  top: 25px;
+  width: 14px;
+  height: 14px;
+  background-color: #ff9800;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
 }
 
 /* ICONS */
@@ -293,30 +332,58 @@ section {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
-/* ABOUT SECTION */
+/* --- ABOUT SECTION --- */
 
 #about {
   position: relative;
-}
-
-.about-containers {
-  gap: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-}
-
-.about-details-container {
-  justify-content: center;
+  display: flex;
   flex-direction: column;
+  align-items: center; /* Centers titles and the final content block */
 }
 
-.about-containers,
+#about .section-container {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Ensure the detail column takes up the remaining space */
 .about-details-container {
   display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.about-pic {
-  border-radius: 2rem;
+/* THE FIX: Centering the Expertise/Education area */
+.expertise-education-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1100px; /* Limits width to match common web standards */
+  margin: 3rem auto 0 auto; /* Centers the whole block horizontally */
+  gap: 3rem;
+  justify-content: center;
+}
+
+.info-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sub-title-med {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center; /* Centers the header over the timeline */
+}
+
+/* Original Top Boxes (Experience & Education) */
+.about-containers {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .details-container {
@@ -324,16 +391,36 @@ section {
   flex: 1;
   background: white;
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
+  border: 1px solid rgb(163, 163, 163);
   text-align: center;
 }
 
-.section-container {
-  gap: 4rem;
-  height: 80%;
+/* Timeline Cards Styling */
+.timeline-v2 {
+  position: relative;
+  padding-left: 25px;
+  border-left: 2px solid #e3e3e3;
 }
 
+.timeline-v2-marker {
+  position: absolute;
+  left: -33px; /* Centers the dot on the line */
+  top: 25px;
+  width: 14px;
+  height: 14px;
+  background-color: #ff9800;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.3);
+}
+
+.timeline-v2-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  text-align: left; /* Keeps content readable */
+}
 /* EXPERIENCE SECTION */
 
 #experience {

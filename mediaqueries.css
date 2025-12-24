@@ -1,6 +1,5 @@
 @media screen and (max-width: 1400px) {
   #profile {
-    /* Changed to 100vh to ensure it fills the entire screen height */
     min-height: 100vh;
     height: auto;
     display: flex;
@@ -23,38 +22,65 @@
   #hamburger-nav {
     display: flex;
   }
+
+  /* ABOUT SECTION ADJUSTMENTS */
+  #about .section-container {
+    flex-direction: column; /* Stacks image on top of boxes/bio */
+    align-items: center;
+  }
+
+  .about-details-container {
+    width: 100%;
+  }
+
+  /* Ensures Expertise/Education stack and align correctly */
+  .expertise-education-wrapper {
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+    width: 100%;
+  }
+
+  .info-column {
+    width: 100%;
+  }
+
+  .sub-title-med {
+    text-align: center; /* Centers titles when stacked on tablet/mobile */
+  }
+
   #experience,
   .experience-details-container {
     margin-top: 2rem;
   }
+  
   .section__pic-container {
     width: 275px; 
-    height: 275px; /* Ensure height matches width exactly */
+    height: 275px;
     margin: 0 auto 2rem;
   }
   
   #profile {
-    height: auto; /* Allow it to grow on mobile if content is long */
+    height: auto;
     min-height: 100vh; 
-    padding-top: 15vh; /* Gives space for the nav */
+    padding-top: 15vh;
   }
+
   section,
   .section-container {
     height: fit-content;
   }
+
   section {
     margin: 0 5%;
-    /* Add padding to prevent sections from touching */
     padding-bottom: 5rem; 
   }
-  .section__pic-container {
-    width: 275px;
-    height: 275px;
-    margin: 0 auto 2rem;
-  }
+
   .about-containers {
     margin-top: 0;
   }
+
+  /* SKILLS DYNAMIC SIZING */
   .skill-oval {
     width: 125px;
     height: calc(160px + (var(--percent) * 0.7px));
@@ -65,6 +91,17 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  /* This ensures the timeline doesn't look cramped on smaller tablets */
+  .timeline-v2 {
+    padding-left: 15px;
+  }
+  
+  .timeline-v2-card {
+    padding: 1rem;
+  }
+}
+
 @media screen and (max-width: 600px) {
   #contact,
   footer {
@@ -72,7 +109,6 @@
     padding: 2rem 0;
   }
   #profile {
-    /* Guaranteed full screen height on mobile */
     min-height: 100vh;
     height: auto;
     padding-top: 15vh;
@@ -88,6 +124,7 @@
   .contact-info-upper-container,
   .btn-container {
     flex-wrap: wrap;
+    gap: 1rem;
   }
   .contact-info-container {
     margin: 0;
@@ -121,6 +158,8 @@
   .text-container {
     text-align: justify;
   }
+
+  /* SKILLS MOBILE SIZING */
   .skill-oval {
     width: 110px;
     height: calc(140px + (var(--percent) * 0.6px)); 
