@@ -368,6 +368,14 @@
   footer {
     margin: 0;
   }
+
+  /* ✅ Center copyright text on mobile */
+  #contact .copyright {
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 

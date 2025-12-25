@@ -82,7 +82,7 @@ function viewDescription(button, descriptionText) {
 
 // Wait for the document to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if ScrollReveal is defined (prevents errors if the CDN fails)
+  // ScrollReveal (safe if CDN fails)
   if (typeof ScrollReveal !== "undefined") {
     const sr = ScrollReveal({
       origin: "bottom",
@@ -95,38 +95,74 @@ document.addEventListener("DOMContentLoaded", () => {
     // Reveal section titles first
     sr.reveal(".section__text__p1, .title", { interval: 100 });
 
-    // Reveal the vertical ovals with a staggered upward "growth" effect
+    // Reveal skill cards
     sr.reveal(".skill-card", {
       interval: 150,
       distance: "100px",
       scale: 0.85,
       easing: "cubic-bezier(0.5, 0, 0, 1)",
-      viewFactor: 0.2, // Animates when 20% of the element is visible
+      viewFactor: 0.2,
     });
 
     // Reveal project cards
     sr.reveal(".details-container", { interval: 200 });
   }
-});
 
-// Highlight active nav link on scroll
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+  // ✅ Nav underline follows scroll + click (desktop + hamburger)
+  const sections = document.querySelectorAll("section");
+  const navLinksDesktop = document.querySelectorAll(".nav-links a");
+  const navLinksMobile = document.querySelectorAll(".menu-links a");
+  const navLinks = [...navLinksDesktop, ...navLinksMobile];
 
-window.addEventListener("scroll", () => {
-  let current = "";
+  let manualTargetId = null;
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 120;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
+  const setActive = (id) => {
+    navLinksDesktop.forEach((link) => link.classList.remove("active"));
+    navLinksDesktop.forEach((link) => {
+      if (link.getAttribute("href") === `#${id}`) link.classList.add("active");
+    });
+  };
 
+  // ✅ Instant underline on click (smooth scroll handled by CSS)
   navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
+    link.addEventListener("click", () => {
+      manualTargetId = link.getAttribute("href").replace("#", "");
+      setActive(manualTargetId);
+    });
   });
+
+  // ✅ Observe ALL sections so underline updates while user scrolls
+  const observer = new IntersectionObserver(
+    (entries) => {
+      // If user clicked nav, wait until that target section is reached
+      if (manualTargetId) {
+        const reachedTarget = entries.some(
+          (e) => e.isIntersecting && e.target.id === manualTargetId
+        );
+
+        if (reachedTarget) {
+          setActive(manualTargetId);
+          manualTargetId = null;
+        }
+        return;
+      }
+
+      // Normal scrolling: most visible section wins
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) setActive(visible.target.id);
+    },
+    {
+      // More stable than a single value; prevents flicker between sections
+      threshold: [0.25, 0.4, 0.55, 0.7, 0.85],
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+
+  // ✅ Correct underline on refresh / reload
+  const currentHash = window.location.hash.replace("#", "");
+  setActive(currentHash || "profile");
 });
