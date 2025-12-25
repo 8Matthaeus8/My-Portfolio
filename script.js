@@ -2,9 +2,26 @@
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
   const icon = document.querySelector(".hamburger-icon");
-  menu.classList.toggle("open");
-  icon.classList.toggle("open");
+
+  // If menu is opening
+  if (!menu.classList.contains("open")) {
+    menu.classList.remove("closing");
+    menu.classList.add("open");
+    icon.classList.add("open");
+    return;
+  }
+
+  // If menu is closing (play animation)
+  menu.classList.add("closing");
+  menu.classList.remove("open");
+  icon.classList.remove("open");
+
+  // After animation ends, remove closing state
+  setTimeout(() => {
+    menu.classList.remove("closing");
+  }, 260);
 }
+
 
 // View Full Image
 function viewFullImage(button) {
@@ -45,42 +62,6 @@ function viewFullImage(button) {
 }
 
 // View Project Description
-function viewDescription(button, descriptionText) {
-  // Create overlay
-  const overlay = document.createElement("div");
-  overlay.classList.add("image-overlay");
-  document.body.appendChild(overlay);
-
-  // Prevent background scroll
-  document.body.style.overflow = "hidden";
-
-  // Create description container
-  const descriptionContainer = document.createElement("div");
-  descriptionContainer.classList.add("description-container");
-  overlay.appendChild(descriptionContainer);
-
-  // Add description text
-  const paragraph = document.createElement("p");
-  paragraph.style.whiteSpace = "pre-line";
-  paragraph.textContent = descriptionText;
-  descriptionContainer.appendChild(paragraph);
-
-  // Add close button
-  const closeButton = document.createElement("span");
-  closeButton.classList.add("close-button");
-  closeButton.innerHTML = "&times;";
-  descriptionContainer.appendChild(closeButton);
-
-  // Close functionality
-  overlay.addEventListener("click", (event) => {
-    if (event.target === overlay || event.target === closeButton) {
-      document.body.style.overflow = "";
-      document.body.removeChild(overlay);
-    }
-  });
-}
-
-// Wait for the document to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
   // ScrollReveal (safe if CDN fails)
   if (typeof ScrollReveal !== "undefined") {
@@ -123,11 +104,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  // ✅ Close hamburger menu helper (used by click + outside click)
+  const menu = document.querySelector(".menu-links");
+  const icon = document.querySelector(".hamburger-icon");
+  const hamburgerMenu = document.querySelector(".hamburger-menu");
+
+  const closeMenu = () => {
+    if (!menu || !icon) return;
+    menu.classList.remove("open");
+    icon.classList.remove("open");
+  };
+
   // ✅ Instant underline on click (smooth scroll handled by CSS)
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       manualTargetId = link.getAttribute("href").replace("#", "");
       setActive(manualTargetId);
+
+      // ✅ if user clicked a mobile menu link, close dropdown
+      closeMenu();
     });
   });
 
@@ -155,7 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (visible) setActive(visible.target.id);
     },
     {
-      // More stable than a single value; prevents flicker between sections
       threshold: [0.25, 0.4, 0.55, 0.7, 0.85],
     }
   );
@@ -165,4 +159,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // ✅ Correct underline on refresh / reload
   const currentHash = window.location.hash.replace("#", "");
   setActive(currentHash || "profile");
+
+  // ✅ Close when clicking outside the hamburger area
+  document.addEventListener("click", (e) => {
+    if (!menu || !icon || !hamburgerMenu) return;
+
+    const clickedInside = hamburgerMenu.contains(e.target);
+
+    if (menu.classList.contains("open") && !clickedInside) {
+      closeMenu();
+    }
+  });
+
+  // ✅ Close when pressing ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
 });
+
