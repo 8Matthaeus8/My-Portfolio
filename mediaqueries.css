@@ -101,6 +101,7 @@
   section {
     margin: 0 5%;
     padding-bottom: 5rem;
+    scroll-margin-top: 10vh;
   }
 
   .about-containers {
@@ -174,7 +175,7 @@
   #profile {
     min-height: 100vh;
     height: auto;
-    padding-top: 15vh;
+    padding-top: 6vh;
   }
 
   /* GLOBAL SECTIONS */

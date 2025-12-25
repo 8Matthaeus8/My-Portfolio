@@ -40,12 +40,20 @@ nav {
   height: 12vh;
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: #1E3A8A; /* BLUE */
   z-index: 1000;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+  border-bottom: none;
+}
+
+/* Logo */
+.logo {
+  font-size: 2rem;
+  color: white;
+}
+
+.logo:hover {
+  cursor: default;
 }
 
 .nav-links {
@@ -55,26 +63,41 @@ nav {
   font-weight: 500;
 }
 
-a {
-  color: black;
+/* Nav links */
+.nav-links li a {
+  color: white;
   text-decoration: none;
-  text-decoration-color: white;
+  position: relative;
+  padding-bottom: 6px;
 }
 
-a:hover {
-  color: grey;
-  text-decoration: underline;
-  text-underline-offset: 1rem;
-  text-decoration-color: rgb(181, 181, 181);
+/* Hover - keep white text */
+.nav-links li a:hover {
+  color: white;
+  text-decoration: none;
 }
 
-.logo {
-  font-size: 2rem;
+/* underline indicator (hover + active) */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 300ms ease;
 }
 
-.logo:hover {
-  cursor: default;
+.nav-links li a:hover::after {
+  width: 100%;
 }
+
+/* Active link (add class="active" in JS/HTML) */
+.nav-links li a.active::after {
+  width: 100%;
+}
+
 
 /* HAMBURGER MENU */
 
@@ -143,32 +166,48 @@ a:hover {
   transform: rotate(-45deg) translate(10px, -5px);
 }
 
-/* SECTIONS */
+/* =========================
+   GLOBAL SECTIONS
+   ========================= */
 
 section {
   padding-top: 15vh;
   padding-bottom: 5vh;
-  margin: 0 10rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1300px;
   min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-margin-top: 12vh;
 }
 
 .section-container {
   display: flex;
+  width: 100%;
 }
 
-/* --- PROFILE (HOME) SECTION --- */
+
+/* =========================
+   PROFILE SECTION – STYLING
+   ========================= */
 
 #profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+
+  justify-content: flex-start;
+  padding-top: 8vh;
+
   gap: 2rem;
-  min-height: 80vh;
+  min-height: calc(100vh - 12vh);
   margin: 0 auto;
+
+  background-color: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 #profile .section__pic-container {
@@ -189,32 +228,123 @@ section {
   text-align: center;
 }
 
+/* ✅ Name color */
+#profile .title {
+  color: #1E3A8A; /* Blue */
+}
+
 .section__text__p2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
 
-.btn-container {
+/* Buttons */
+#profile .btn-container {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
+/* ✅ Buttons: base style (outlined) */
+#profile .btn-color-1,
+#profile .btn-color-2 {
+  background-color: transparent;
+  color: #1E3A8A;
+  border-color: #1E3A8A;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+/* ✅ Download CV = primary (blue fill + white text) */
+#profile .btn-color-1 {
+  background-color: #1E3A8A;
+  color: #ffffff;
+  border-color: #1E3A8A;
+}
+
+/* ✅ Hover animation (Royal Blue) */
+#profile .btn-color-1:hover {
+  background-color: #2563EB;
+  border-color: #2563EB;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* ✅ Contact Info hover (Royal Blue) */
+#profile .btn-color-2:hover {
+  background-color: #2563EB;
+  border-color: #2563EB;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* ✅ Social icons: default blue */
+#profile #socials-container .icon {
+  filter: brightness(0) saturate(100%)
+    invert(18%) sepia(75%) saturate(2676%)
+    hue-rotate(216deg) brightness(90%) contrast(95%);
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+/* ✅ Social icons hover: Royal Blue */
+#profile #socials-container .icon:hover {
+  transform: translateY(-3px);
+  filter: brightness(0) saturate(100%)
+    invert(39%) sepia(98%) saturate(1654%)
+    hue-rotate(213deg) brightness(95%) contrast(101%);
+}
+
+/* Center and space social icons */
+#profile #socials-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+
+
+
 /* ===============================
-   AOUT SECTION
+   ABOUT SECTION
    =============================== */
 #about {
+  /* ✅ FULL-WIDTH BAND */
+  width: 100%;
+  max-width: none;               /* break out of section max-width */
+  margin: 0;                     /* remove auto-centering */
+  padding-left: 0;
+  padding-right: 0;
+
+  background-color: #F2F2F2;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#about .title {
-  margin-bottom: 4rem;
+/* ✅ keep the content aligned like other sections */
+#about > * {
+  width: 100%;
+  max-width: 1300px;             /* match your section max-width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Title */
+#about .title {
+  margin-bottom: 4rem;
+  color: #1E3A8A;
+}
+
+/* Main layout */
 #about .section-container {
   display: flex;
   flex-direction: row;
@@ -223,6 +353,7 @@ section {
   width: 100%;
 }
 
+/* Profile image */
 #about .section__pic-container {
   width: 350px;
   height: 350px;
@@ -236,12 +367,14 @@ section {
   border-radius: 2rem;
 }
 
+/* Right-side content */
 .about-details-container {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
+/* Experience & Education cards */
 .about-containers {
   display: flex;
   gap: 2rem;
@@ -254,48 +387,55 @@ section {
   flex: 1;
   background: white;
   border-radius: 2rem;
-  border: 1px solid rgb(163, 163, 163);
+  border: 1px solid #D1D5DB;
   text-align: center;
 
   display: flex;
   flex-direction: column;
-  align-items: center;     /* align icons horizontally */
+  align-items: center;
   gap: 0.75rem;
-  height: auto;
-  min-height: 220px;       /* equal card height */
+  min-height: 220px;
 }
 
-/* Icon */
+/* Icons */
 #about .details-container .icon {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  margin-bottom: 0.25rem;
 }
 
-/* Title alignment */
+/* Card titles */
 #about .details-container h3 {
   margin: 0;
-  min-height: 1.5em;       /* forces same title baseline */
+  min-height: 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Text spacing */
+/* Card text */
 #about .details-container p {
   margin: 0;
   line-height: 1.6;
 }
 
-/* --- EXPERTISE & EDUCATION WRAPPER --- */
+/* Center About section headings */
+#about .section__text__p1,
+#about .title {
+  text-align: center;
+  width: 100%;
+}
+
+/* ===============================
+   EXPERTISE & EDUCATION TIMELINES
+   =============================== */
 
 .expertise-education-wrapper {
   display: flex;
   justify-content: space-between;
   gap: 4rem;
   margin-top: 3rem;
-  width: 100%; /* Spans full section width to align with left image edge */
+  width: 100%;
 }
 
 .info-column {
@@ -306,15 +446,15 @@ section {
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 2rem;
+  color: #1E3A8A;
   text-align: left;
 }
 
-/* Timeline Components */
-
+/* Timeline */
 .timeline-v2 {
   position: relative;
   padding-left: 30px;
-  border-left: 2px solid #e3e3e3;
+  border-left: 2px solid #1E3A8A;
   margin-left: 10px;
 }
 
@@ -329,43 +469,50 @@ section {
   top: 25px;
   width: 14px;
   height: 14px;
-  background-color: #ff9800;
+  background-color: #1E3A8A;
   border-radius: 50%;
   border: 3px solid white;
-  box-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+  box-shadow: 0 0 8px rgba(30, 58, 138, 0.4);
   z-index: 2;
 }
 
 .timeline-v2-card {
-  background: #fff;
+  background: white;
   padding: 1.5rem;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   text-align: left;
 }
 
-/* Card Header with Date Tag */
-
+/* Timeline header */
 .card-header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
+  gap: 1rem; /* ✅ prevents tight squeeze on long titles */
 }
 
 .card-date-tag {
-  background: linear-gradient(135deg, #ff9800, #f6ae3d);
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
   color: white;
   font-size: 0.75rem;
   font-weight: 600;
   padding: 5px 15px;
   border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
+
+  /* ✅ FIX: keep "May 2025" on ONE LINE */
   white-space: nowrap;
-  box-shadow: 0 4px 10px rgba(255, 152, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: max-content;
+  flex-shrink: 0;
 }
 
 .card-sub-header {
-  color: #777;
+  color: #4B5563;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
@@ -374,6 +521,8 @@ section {
   font-size: 0.95rem;
   line-height: 1.6;
 }
+
+
 
 /* ===============================
    SKILLS SECTION
