@@ -957,42 +957,65 @@ article {
 }
 
 /* =========================
-   CONTACT SECTION (NO PEEK FIX)
+   CONTACT SECTION (CENTER + NO PEEK FIX)
    ========================= */
 
 #contact {
-  /* increase anchor offset a bit more */
-  scroll-margin-top: calc(12vh + 24px);
+  scroll-margin-top: calc(72px + 24px);
+  min-height: calc(100vh - 72px);
 
-  /* keep solid background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
   background: #ffffff;
   position: relative;
   overflow: hidden;
+}
+
+/* ✅ Move everything slightly up (but don't force width!) */
+#contact > * {
+  position: relative;
+  z-index: 6;
+  transform: translateY(-40px);
+}
+
+/* ✅ Allow contact box to size to its content */
+#contact .contact-info-upper-container {
+  width: max-content !important;
 }
 
 /* stronger top mask (covers the peek) */
 #contact::before {
   content: "";
   position: absolute;
-  top: -40px;        /* was -10px */
+  top: -40px;
   left: 0;
   right: 0;
-  height: 60px;      /* was 14px */
+  height: 60px;
   background: #ffffff;
   pointer-events: none;
   z-index: 5;
 }
 
-/* ensure contact content sits above the mask */
-#contact > * {
-  position: relative;
-  z-index: 6;
+/* ✅ Only limit width for the TEXT elements (not the button container) */
+#contact .title,
+#contact .section__text__p1,
+#contact .copyright {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Mobile sticky nav height */
 @media screen and (max-width: 600px) {
   #contact {
     scroll-margin-top: calc(10vh + 24px);
+    min-height: calc(100vh - 10vh);
+    padding: 0 1.25rem; /* breathing room */
   }
 
   #contact::before {
@@ -1006,20 +1029,24 @@ article {
    CONTACT BOX
    ========================= */
 
-.contact-info-upper-container {
+#contact .contact-info-upper-container {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 
   border-radius: 2rem;
   border: 1px solid rgb(163, 163, 163);
   background: rgb(250, 250, 250);
 
-  margin-top: 1.25rem;
-  padding: 0.75rem;
-  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 0.6rem 0.75rem;
+
+  width: max-content;        /* ✅ hugs buttons */
+  max-width: 100%;           /* ✅ prevents overflow */
+  flex-wrap: wrap;           /* ✅ wraps on small screens */
 }
+
 
 /* =========================
    CONTACT BUTTONS
@@ -1122,20 +1149,6 @@ article {
   margin-top: 1rem;
   font-size: 0.85rem;
   color: black;
-}
-
-
-/* FOOTER SECTION */
-
-footer {
-  height: 26vh;
-  margin: 0 1rem;
-}
-
-footer p {
   text-align: center;
-}
-
-footer nav {
-  display: none;
+  width: 100%;
 }

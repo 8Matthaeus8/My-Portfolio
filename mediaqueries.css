@@ -214,7 +214,6 @@
 
   /* FLEX WRAPS */
   .about-containers,
-  .contact-info-upper-container,
   .btn-container {
     flex-wrap: wrap;
     gap: 1rem;
@@ -379,12 +378,54 @@
     margin: 0;
   }
 
+  /* =========================
+     ✅ CONTACT FIX (MOBILE)
+     ========================= */
+
+  /* ✅ gray container MUST hug content (not full width) */
+  #contact .contact-info-upper-container {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: calc(100% - 2rem) !important;
+    margin: 1rem auto 0 !important;
+
+    padding: 0.75rem 1rem !important;
+    gap: 0.75rem !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    flex-wrap: wrap !important; /* stack if needed */
+  }
+
+  /* ✅ prevent Gmail button from stretching too wide */
+  #contact .contact-info-container {
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 0.7rem 1rem !important;
+
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
   /* ✅ Center copyright text on mobile */
   #contact .copyright {
     text-align: center;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+  }
+  /* Make contact buttons equal width (clean mobile look) */
+  #contact .contact-info-container {
+    width: 100% !important;
+    max-width: 320px !important;   /* adjust if you want */
+    justify-content: center;
+  }
+
+  /* Now the gray container hugs the button width */
+  #contact .contact-info-upper-container {
+    width: fit-content !important;
+    padding: 0.75rem 1rem !important;
   }
 }
 
