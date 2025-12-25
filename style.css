@@ -948,6 +948,16 @@ article {
   text-align: center;
 }
 
+.description-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
 .close-button {
   position: absolute;
   top: 1rem;

@@ -1,7 +1,10 @@
-// Toggle Hamburger Menu
+// ================================
+// HAMBURGER MENU (with close anim)
+// ================================
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
   const icon = document.querySelector(".hamburger-icon");
+  if (!menu || !icon) return;
 
   // If menu is opening
   if (!menu.classList.contains("open")) {
@@ -22,11 +25,17 @@ function toggleMenu() {
   }, 260);
 }
 
-
-// View Full Image
+// ================================
+// VIEW FULL IMAGE (modal overlay)
+// ================================
 function viewFullImage(button) {
-  const projectImg = button.closest(".details-container").querySelector(".project-img");
-  const fullImageUrl = projectImg.getAttribute("data-full-image");
+  const projectImg = button
+    .closest(".details-container")
+    ?.querySelector(".project-img");
+
+  if (!projectImg) return;
+
+  const fullImageUrl = projectImg.getAttribute("data-full-image") || projectImg.src;
 
   // Create overlay
   const overlay = document.createElement("div");
@@ -53,17 +62,31 @@ function viewFullImage(button) {
   fullImageContainer.appendChild(closeButton);
 
   // Close functionality
+  const close = () => {
+    document.body.style.overflow = "";
+    overlay.remove();
+  };
+
   overlay.addEventListener("click", (event) => {
-    if (event.target === overlay || event.target === closeButton) {
-      document.body.style.overflow = "";
-      document.body.removeChild(overlay);
-    }
+    if (event.target === overlay || event.target === closeButton) close();
   });
+
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.key === "Escape") close();
+    },
+    { once: true }
+  );
 }
 
-// View Project Description
+// ===================================================
+// DOMContentLoaded: ScrollReveal + Active Nav + Modals
+// ===================================================
 document.addEventListener("DOMContentLoaded", () => {
-  // ScrollReveal (safe if CDN fails)
+  // ----------------
+  // ScrollReveal
+  // ----------------
   if (typeof ScrollReveal !== "undefined") {
     const sr = ScrollReveal({
       origin: "bottom",
@@ -73,10 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
       reset: false,
     });
 
-    // Reveal section titles first
     sr.reveal(".section__text__p1, .title", { interval: 100 });
 
-    // Reveal skill cards
     sr.reveal(".skill-card", {
       interval: 150,
       distance: "100px",
@@ -85,11 +106,70 @@ document.addEventListener("DOMContentLoaded", () => {
       viewFactor: 0.2,
     });
 
-    // Reveal project cards
     sr.reveal(".details-container", { interval: 200 });
   }
 
-  // ✅ Nav underline follows scroll + click (desktop + hamburger)
+  // -----------------------------------------
+  // DESCRIPTION MODAL (fix Description buttons)
+  // -----------------------------------------
+  const descOverlay = document.getElementById("descOverlay");
+  const descClose = document.getElementById("descClose");
+  const descTitle = document.getElementById("descTitle");
+  const descText = document.getElementById("descText");
+
+  const openDesc = (title, text) => {
+    if (!descOverlay || !descTitle || !descText) return;
+
+    descTitle.textContent = title || "Project Description";
+    descText.textContent = text || "No description provided.";
+
+    descOverlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeDesc = () => {
+    if (!descOverlay) return;
+    descOverlay.style.display = "none";
+    document.body.style.overflow = "";
+  };
+
+  // ✅ Supports BOTH:
+  // 1) your old inline onclick="viewDescription(this,'...')"
+  // 2) the cleaner data-* buttons (.project-desc-btn)
+  window.viewDescription = (btn, text) => {
+    const title =
+      btn?.closest(".details-container")?.querySelector(".project-title")
+        ?.textContent || "Project Description";
+    openDesc(title, text);
+  };
+
+  // ✅ New recommended way: <button class="project-desc-btn" data-title="" data-description="">
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".project-desc-btn");
+    if (!btn) return;
+
+    const title =
+      btn.dataset.title ||
+      btn.closest(".details-container")?.querySelector(".project-title")
+        ?.textContent ||
+      "Project Description";
+
+    const text = btn.dataset.description || "";
+    openDesc(title, text);
+  });
+
+  descClose?.addEventListener("click", closeDesc);
+  descOverlay?.addEventListener("click", (e) => {
+    if (e.target === descOverlay) closeDesc();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDesc();
+  });
+
+  // ----------------------------
+  // Active nav underline on scroll
+  // ----------------------------
   const sections = document.querySelectorAll("section");
   const navLinksDesktop = document.querySelectorAll(".nav-links a");
   const navLinksMobile = document.querySelectorAll(".menu-links a");
@@ -104,32 +184,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // ✅ Close hamburger menu helper (used by click + outside click)
+  // ----------------------------
+  // Hamburger close helpers
+  // ----------------------------
   const menu = document.querySelector(".menu-links");
   const icon = document.querySelector(".hamburger-icon");
   const hamburgerMenu = document.querySelector(".hamburger-menu");
 
   const closeMenu = () => {
     if (!menu || !icon) return;
-    menu.classList.remove("open");
-    icon.classList.remove("open");
+
+    // play close anim if your CSS supports .closing
+    if (menu.classList.contains("open")) {
+      menu.classList.add("closing");
+      menu.classList.remove("open");
+      icon.classList.remove("open");
+
+      setTimeout(() => {
+        menu.classList.remove("closing");
+      }, 260);
+    }
   };
 
-  // ✅ Instant underline on click (smooth scroll handled by CSS)
+  // ✅ Click nav links: underline + close hamburger
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       manualTargetId = link.getAttribute("href").replace("#", "");
       setActive(manualTargetId);
-
-      // ✅ if user clicked a mobile menu link, close dropdown
       closeMenu();
     });
   });
 
-  // ✅ Observe ALL sections so underline updates while user scrolls
+  // ✅ Observe sections for underline update
   const observer = new IntersectionObserver(
     (entries) => {
-      // If user clicked nav, wait until that target section is reached
       if (manualTargetId) {
         const reachedTarget = entries.some(
           (e) => e.isIntersecting && e.target.id === manualTargetId
@@ -142,25 +230,22 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Normal scrolling: most visible section wins
       const visible = entries
         .filter((e) => e.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
       if (visible) setActive(visible.target.id);
     },
-    {
-      threshold: [0.25, 0.4, 0.55, 0.7, 0.85],
-    }
+    { threshold: [0.25, 0.4, 0.55, 0.7, 0.85] }
   );
 
   sections.forEach((section) => observer.observe(section));
 
-  // ✅ Correct underline on refresh / reload
+  // ✅ Correct underline on refresh
   const currentHash = window.location.hash.replace("#", "");
   setActive(currentHash || "profile");
 
-  // ✅ Close when clicking outside the hamburger area
+  // ✅ Close hamburger when clicking outside
   document.addEventListener("click", (e) => {
     if (!menu || !icon || !hamburgerMenu) return;
 
@@ -170,10 +255,4 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMenu();
     }
   });
-
-  // ✅ Close when pressing ESC
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
 });
-
