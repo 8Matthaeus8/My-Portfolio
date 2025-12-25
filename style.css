@@ -171,7 +171,7 @@ nav {
    ========================= */
 
 section {
-  padding-top: 15vh;
+  padding-top: 6vh;
   padding-bottom: 5vh;
   margin: 0 auto;
   width: 100%;
@@ -186,6 +186,90 @@ section {
 .section-container {
   display: flex;
   width: 100%;
+}
+
+/* ICONS */
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+/* =========================
+   BUTTONS (GLOBAL BASE ONLY)
+   ========================= */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: 600;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+/* Base button variants — structure only */
+.btn-color-1,
+.btn-color-2 {
+  background: transparent;
+  border: 0.1rem solid rgb(53, 53, 53);
+  color: inherit;
+}
+
+
+/* Base button variants: structure only (NO colors here) */
+.btn-color-1,
+.btn-color-2 {
+  background: transparent;
+  border: 0.1rem solid rgb(53, 53, 53);
+  color: inherit;
+}
+
+/* EXPERIENCE SECTION (Detailed) */
+
+#experience {
+  position: relative;
+}
+
+.experience-sub-title {
+  color: rgb(85, 85, 85);
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-container {
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+  gap: 0.5rem;
 }
 
 
@@ -308,7 +392,6 @@ section {
   align-items: center;
   gap: 1.25rem;
 }
-
 
 
 
@@ -533,6 +616,11 @@ section {
   position: relative;
 }
 
+/* ✅ Skills main title */
+#skills .title {
+  color: #1E3A8A; /* Blue */
+}
+
 .skills-wrapper {
   display: flex;
   flex-direction: column;
@@ -540,10 +628,15 @@ section {
   margin-top: 2rem;
 }
 
+/* ✅ Category titles */
+#skills .experience-sub-title {
+  color: #000000; /* Black */
+}
+
 /* ✅ Base row styling */
 .skills-row {
   display: flex;
-  justify-content: center;        /* centers items by default */
+  justify-content: center;
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 2.5rem;
@@ -603,98 +696,22 @@ section {
   text-align: center;
 }
 
-/* ICONS */
-
-.icon {
-  cursor: pointer;
-  height: 2rem;
-}
-
-/* BUTTONS */
-
-.btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.btn {
-  font-weight: 600;
-  padding: 1rem;
-  width: 8rem;
-  border-radius: 2rem;
-}
-
-.btn-color-1,
-.btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
-}
-
-.btn-color-1:hover,
-.btn-color-2:hover {
-  cursor: pointer;
-}
-
-.btn-color-1,
-.btn-color-2:hover {
-  background: rgb(53, 53, 53);
-  color: white;
-}
-
-.btn-color-1:hover {
-  background: rgb(0, 0, 0);
-}
-
-.btn-color-2 {
-  background: none;
-}
-
-.btn-color-2:hover {
-  border: rgb(255, 255, 255) 0.1rem solid;
-}
-
-/* EXPERIENCE SECTION (Detailed) */
-
-#experience {
-  position: relative;
-}
-
-.experience-sub-title {
-  color: rgb(85, 85, 85);
-  font-weight: 600;
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  width: 100%;
-}
-
-.experience-details-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.article-container {
-  display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  justify-content: space-around;
-}
-
-article {
-  display: flex;
-  width: 10rem;
-  justify-content: space-around;
-  gap: 0.5rem;
-}
-
 /* =========================
    PROJECTS SECTION (CLEAN & CONSISTENT)
    ========================= */
 
 #projects {
   position: relative;
+}
+
+/* ✅ Personal Project title = blue */
+#projects .title {
+  color: #1E3A8A;
+}
+
+/* ✅ Rescuer Side / Admin Side / Modals subtitles = black */
+#projects .experience-sub-title {
+  color: #000000;
 }
 
 #projects .experience-details-container .about-containers {
@@ -704,7 +721,7 @@ article {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  align-items: start;       /* ⬅️ IMPORTANT: stop stretching */
+  align-items: start;
 }
 
 /* ✅ ALL cards use natural height (Admin/Modals size) */
@@ -717,7 +734,7 @@ article {
 /* uniform image box (same as Admin/Modals) */
 #projects .article-container {
   width: 100%;
-  height: 260px;            /* ⬅️ matches Admin/Modal visual size */
+  height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -742,11 +759,55 @@ article {
 /* buttons stay naturally after content */
 #projects .btn-container {
   margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-#projects .project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
+/* =========================
+   PROJECT BUTTON STYLES
+   ========================= */
+
+/* ✅ VIEW button = blue fill + white text (FORCE applies to ALL view buttons) */
+#projects .btn.btn-color-1 {
+  background-color: #1E3A8A;
+  color: #ffffff;
+  border-color: #1E3A8A;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+#projects .btn.btn-color-1:hover {
+  background-color: #2563EB; /* royal blue hover */
+  border-color: #2563EB;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* ✅ DESCRIPTION button = white fill + blue text/border */
+#projects .btn.btn-color-2 {
+  background-color: #ffffff;
+  color: #1E3A8A;
+  border-color: #1E3A8A;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+#projects .btn.btn-color-2:hover {
+  background-color: #2563EB; /* royal blue hover */
+  border-color: #2563EB;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
 /* MODAL STYLES */
@@ -786,6 +847,8 @@ article {
   font-size: 2rem;
   cursor: pointer;
 }
+
+
 
 
 /* =========================
