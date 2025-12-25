@@ -248,7 +248,7 @@ section {
   width: 100%;
 }
 
-.details-container {
+#about .details-container {
   padding: 1.5rem;
   flex: 1;
   background: white;
@@ -256,25 +256,36 @@ section {
   border: 1px solid rgb(163, 163, 163);
   text-align: center;
 
-  /* ADD THESE */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  align-items: center;     /* align icons horizontally */
+  gap: 0.75rem;
+  height: auto;
+  min-height: 220px;       /* equal card height */
 }
 
-
-.text-container {
-  width: 100%;
-  margin-bottom: 2rem;
-  text-align: justify;
+/* Icon */
+#about .details-container .icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 0.25rem;
 }
 
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+/* Title alignment */
+#about .details-container h3 {
+  margin: 0;
+  min-height: 1.5em;       /* forces same title baseline */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Text spacing */
+#about .details-container p {
+  margin: 0;
+  line-height: 1.6;
+}
 
 /* --- EXPERTISE & EDUCATION WRAPPER --- */
 
@@ -362,6 +373,7 @@ section {
   font-size: 0.95rem;
   line-height: 1.6;
 }
+
 
 /* ICONS */
 
