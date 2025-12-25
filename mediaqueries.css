@@ -1,4 +1,12 @@
+/* =========================
+   MEDIA QUERIES
+   ========================= */
+
+/* =========================
+   1400px BELOW (LARGE TABLET / SMALL LAPTOP)
+   ========================= */
 @media screen and (max-width: 1400px) {
+  /* PROFILE */
   #profile {
     min-height: 100vh;
     height: auto;
@@ -7,18 +15,23 @@
     justify-content: center;
   }
 
-  /* keep for general flex layouts */
+  /* ABOUT (general flex wrap) */
   .about-containers {
     flex-wrap: wrap;
   }
 
+  /* CONTACT / PROJECTS */
   #contact,
   #projects {
     height: fit-content;
   }
 }
 
+/* =========================
+   1200px BELOW (TABLET)
+   ========================= */
 @media screen and (max-width: 1200px) {
+  /* NAV */
   #desktop-nav {
     display: none;
   }
@@ -26,7 +39,7 @@
     display: flex;
   }
 
-  /* ABOUT SECTION ADJUSTMENTS */
+  /* ABOUT */
   #about .section-container {
     flex-direction: column;
     align-items: center;
@@ -36,7 +49,14 @@
     width: 100%;
   }
 
-  /* Ensures Expertise/Education stack and align correctly */
+  /* ✅ Center bio on tablet */
+  #about .text-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Expertise/Education layout */
   .expertise-education-wrapper {
     flex-direction: column;
     gap: 3rem;
@@ -52,23 +72,27 @@
     text-align: center;
   }
 
+  /* EXPERIENCE SECTION SPACING */
   #experience,
   .experience-details-container {
     margin-top: 2rem;
   }
 
+  /* GLOBAL IMAGE CONTAINERS */
   .section__pic-container {
     width: 275px;
     height: 275px;
     margin: 0 auto 2rem;
   }
 
+  /* PROFILE */
   #profile {
     height: auto;
     min-height: 100vh;
     padding-top: 15vh;
   }
 
+  /* GLOBAL SECTIONS */
   section,
   .section-container {
     height: fit-content;
@@ -83,7 +107,7 @@
     margin-top: 0;
   }
 
-  /* SKILLS DYNAMIC SIZING */
+  /* SKILLS */
   .skill-oval {
     width: 125px;
     height: calc(160px + (var(--percent) * 0.7px));
@@ -94,7 +118,7 @@
     gap: 1.5rem;
   }
 
-  /* ✅ PROJECTS – TABLET: 2 PER ROW */
+  /* PROJECTS – TABLET: 2 PER ROW */
   #projects .experience-details-container .about-containers {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
@@ -102,14 +126,18 @@
     width: 100%;
   }
 
-  /* ✅ PROJECTS – keep images consistent (no forced card height) */
+  /* PROJECTS – consistent image height */
   #projects .article-container {
     height: 260px !important;
     overflow: hidden !important;
   }
 }
 
+/* =========================
+   900px BELOW (SMALL TABLET)
+   ========================= */
 @media screen and (max-width: 900px) {
+  /* TIMELINE */
   .timeline-v2 {
     padding-left: 15px;
   }
@@ -119,34 +147,42 @@
   }
 }
 
+/* =========================
+   600px BELOW (MOBILE)
+   ========================= */
 @media screen and (max-width: 600px) {
-  /* ===== APP-LIKE RESPONSIVE ENHANCEMENTS ===== */
+  /* GENERAL */
   body {
     overscroll-behavior: none;
   }
 
+  /* CONTACT / FOOTER */
   #contact,
   footer {
     height: auto;
     padding: 2rem 0;
   }
 
+  /* PROFILE */
   #profile {
     min-height: 100vh;
     height: auto;
     padding-top: 15vh;
   }
 
+  /* GLOBAL SECTIONS */
   section {
     margin: 0;
     padding: 6rem 1.25rem 4rem;
     min-height: auto;
   }
 
+  /* NAV */
   nav {
     height: 10vh;
   }
 
+  /* TYPOGRAPHY */
   article {
     font-size: 1rem;
   }
@@ -156,6 +192,7 @@
     margin-bottom: 2rem;
   }
 
+  /* FLEX WRAPS */
   .about-containers,
   .contact-info-upper-container,
   .btn-container {
@@ -186,6 +223,7 @@
     text-align: center;
   }
 
+  /* IMAGE CONTAINERS */
   .section__pic-container {
     width: 200px;
     height: 200px;
@@ -200,10 +238,14 @@
     font-size: 2rem;
   }
 
-  .text-container {
-    text-align: justify;
+  /* ✅ Center bio on mobile */
+  #about .text-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  /* BUTTONS */
   .btn {
     width: 100%;
     max-width: 320px;
@@ -214,19 +256,20 @@
     align-items: center;
   }
 
+  /* RADIUS */
   .details-container,
   .timeline-v2-card,
   .description-container {
     border-radius: 1.25rem;
   }
 
-  /* ✅ PROJECTS – MOBILE: 1 PER ROW */
+  /* PROJECTS – MOBILE: 1 PER ROW */
   #projects .experience-details-container .about-containers {
     display: grid !important;
     grid-template-columns: 1fr;
   }
 
-  /* ✅ PROJECTS – mobile image height only */
+  /* PROJECTS – mobile image height */
   #projects .article-container {
     height: 240px !important;
     overflow: hidden !important;
@@ -239,7 +282,7 @@
     object-position: top;
   }
 
-  /* SKILLS MOBILE SIZING */
+  /* SKILLS */
   .skills-row {
     justify-content: center;
   }
