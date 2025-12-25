@@ -151,6 +151,13 @@
    600px BELOW (MOBILE)
    ========================= */
 @media screen and (max-width: 600px) {
+  /* ✅ FIX: remove right-side space / horizontal overflow */
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   /* GENERAL */
   body {
     overscroll-behavior: none;
@@ -175,6 +182,8 @@
     margin: 0;
     padding: 6rem 1.25rem 4rem;
     min-height: auto;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   /* NAV */
@@ -198,6 +207,7 @@
   .btn-container {
     flex-wrap: wrap;
     gap: 1rem;
+    max-width: 100%;
   }
 
   .contact-info-container {
@@ -228,6 +238,7 @@
     width: 200px;
     height: 200px;
     margin: 0 auto 2rem;
+    max-width: 100%;
   }
 
   .section__text__p2 {
@@ -243,6 +254,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    max-width: 100%;
   }
 
   /* BUTTONS */
@@ -261,31 +273,46 @@
   .timeline-v2-card,
   .description-container {
     border-radius: 1.25rem;
+    max-width: 100%;
   }
 
   /* PROJECTS – MOBILE: 1 PER ROW */
+  #projects {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #projects .experience-details-container,
+  #projects .experience-details-container .about-containers {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   #projects .experience-details-container .about-containers {
     display: grid !important;
     grid-template-columns: 1fr;
   }
 
-  /* ✅ PROJECTS – MOBILE: make ALL images consistent like Rescuer Side */
+  /* ✅ PROJECTS – MOBILE: ALL images in square box (Rescuer/Admin/Modals) */
   #projects .article-container {
-    height: 260px !important;        /* same visual size */
-    width: 100%;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden !important;
     border-radius: 2rem;
+    max-width: 100%;
   }
 
   #projects .project-img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: top !important; /* same crop style as Rescuer Side */
+    object-position: top !important;
     border-radius: 2rem;
+    max-width: 100%;
   }
 
   /* SKILLS */
@@ -318,41 +345,120 @@
   footer {
     margin: 0;
   }
+}
 
-  /* Rescuer Side: 1st experience-details-container inside #projects */
-  #projects .experience-details-container:nth-of-type(1) .article-container {
-    height: auto !important;
-    aspect-ratio: 1 / 1 !important;
+/* =========================
+   375px BELOW (SMALL MOBILE)
+   ========================= */
+@media screen and (max-width: 375px) {
+  /* NAV: prevent logo + burger from breaking layout */
+  nav {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    max-width: 75%;
+    white-space: normal;
+  }
+
+  /* PROFILE: tighter spacing */
+  #profile {
+    padding-top: 12vh;
+    gap: 1.25rem;
+  }
+
+  /* PROFILE IMAGE: smaller + consistent circle */
+  #profile .section__pic-container {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1rem;
+  }
+
+  #profile .section__pic-container img {
     width: 100%;
-    overflow: hidden !important;
-    border-radius: 2rem;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
   }
 
-  #projects .experience-details-container:nth-of-type(1) .project-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: top !important;
-    border-radius: 2rem;
+  /* TEXT: scale down */
+  .section__text__p1 {
+    font-size: 0.9rem;
   }
 
-  /* Admin Side + Modals: square image container */
-  #projects .experience-details-container:nth-of-type(2) .article-container,
-  #projects .experience-details-container:nth-of-type(3) .article-container {
-    height: auto !important;
-    aspect-ratio: 1 / 1 !important;
-    width: 100%;
-    overflow: hidden !important;
-    border-radius: 2rem;
+  .title {
+    font-size: 1.75rem;
+    line-height: 1.15;
   }
 
-  /* Admin Side + Modals: image fills square */
-  #projects .experience-details-container:nth-of-type(2) .project-img,
-  #projects .experience-details-container:nth-of-type(3) .project-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: top !important;
-    border-radius: 2rem;
+  .section__text__p2 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* BUTTONS: avoid too wide + reduce padding */
+  .btn {
+    max-width: 280px;
+    padding: 0.9rem;
+  }
+
+  /* SOCIAL ICONS: slightly smaller */
+  #socials-container .icon {
+    height: 1.75rem;
+  }
+}
+
+/* =========================
+   320px BELOW (EXTRA SMALL MOBILE)
+   ========================= */
+@media screen and (max-width: 320px) {
+  /* NAV: even tighter */
+  nav {
+    padding: 0 0.75rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    max-width: 70%;
+  }
+
+  /* PROFILE: tighter */
+  #profile {
+    padding-top: 12vh;
+    gap: 1rem;
+  }
+
+  /* IMAGE: smaller */
+  #profile .section__pic-container {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 0.75rem;
+  }
+
+  /* TEXT: smaller */
+  .section__text__p1 {
+    font-size: 0.85rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    line-height: 1.15;
+  }
+
+  .section__text__p2 {
+    font-size: 1rem;
+  }
+
+  /* BUTTONS: full width but not overflowing */
+  .btn {
+    max-width: 260px;
+    padding: 0.85rem;
+  }
+
+  /* SOCIALS */
+  #socials-container .icon {
+    height: 1.6rem;
   }
 }

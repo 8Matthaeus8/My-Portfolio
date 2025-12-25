@@ -682,3 +682,7 @@ footer {
 footer p {
   text-align: center;
 }
+
+footer nav {
+  display: none;
+}
