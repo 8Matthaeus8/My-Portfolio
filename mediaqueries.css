@@ -269,17 +269,23 @@
     grid-template-columns: 1fr;
   }
 
-  /* PROJECTS – mobile image height */
+  /* ✅ PROJECTS – MOBILE: make ALL images consistent like Rescuer Side */
   #projects .article-container {
-    height: 240px !important;
+    height: 260px !important;        /* same visual size */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden !important;
+    border-radius: 2rem;
   }
 
   #projects .project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important; /* same crop style as Rescuer Side */
+    border-radius: 2rem;
   }
 
   /* SKILLS */
@@ -311,5 +317,42 @@
 
   footer {
     margin: 0;
+  }
+
+  /* Rescuer Side: 1st experience-details-container inside #projects */
+  #projects .experience-details-container:nth-of-type(1) .article-container {
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    width: 100%;
+    overflow: hidden !important;
+    border-radius: 2rem;
+  }
+
+  #projects .experience-details-container:nth-of-type(1) .project-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important;
+    border-radius: 2rem;
+  }
+
+  /* Admin Side + Modals: square image container */
+  #projects .experience-details-container:nth-of-type(2) .article-container,
+  #projects .experience-details-container:nth-of-type(3) .article-container {
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    width: 100%;
+    overflow: hidden !important;
+    border-radius: 2rem;
+  }
+
+  /* Admin Side + Modals: image fills square */
+  #projects .experience-details-container:nth-of-type(2) .project-img,
+  #projects .experience-details-container:nth-of-type(3) .project-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important;
+    border-radius: 2rem;
   }
 }
