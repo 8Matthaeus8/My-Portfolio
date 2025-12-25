@@ -255,13 +255,26 @@ section {
   border-radius: 2rem;
   border: 1px solid rgb(163, 163, 163);
   text-align: center;
+
+  /* ADD THESE */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
+
 
 .text-container {
   width: 100%;
   margin-bottom: 2rem;
   text-align: justify;
 }
+
+.color-container {
+  border-color: rgb(163, 163, 163);
+  background: rgb(250, 250, 250);
+}
+
 
 /* --- EXPERTISE & EDUCATION WRAPPER --- */
 
@@ -436,34 +449,67 @@ article {
   gap: 0.5rem;
 }
 
-/* PROJECTS SECTION */
+/* =========================
+   PROJECTS SECTION (CLEAN & CONSISTENT)
+   ========================= */
 
 #projects {
   position: relative;
 }
 
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+#projects .experience-details-container .about-containers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: start;       /* ⬅️ IMPORTANT: stop stretching */
 }
 
-.project-img {
+/* ✅ ALL cards use natural height (Admin/Modals size) */
+#projects .details-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* uniform image box (same as Admin/Modals) */
+#projects .article-container {
+  width: 100%;
+  height: 260px;            /* ⬅️ matches Admin/Modal visual size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* uniform image sizing */
+#projects .project-img {
+  width: 100%;
+  height: 100%;
   border-radius: 2rem;
-  width: 90%;
-  height: 350px;
   object-fit: cover;
   object-position: top;
 }
 
-.project-title {
-  margin: 1rem;
+/* titles/buttons */
+#projects .project-title {
+  margin: 1rem 0;
   color: black;
 }
 
-.project-btn {
+/* buttons stay naturally after content */
+#projects .btn-container {
+  margin-top: 1rem;
+}
+
+#projects .project-btn {
   color: black;
   border-color: rgb(163, 163, 163);
 }
+
+
 
 /* CONTACT SECTION */
 

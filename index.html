@@ -360,10 +360,12 @@
 <section id="projects">
   <p class="section__text__p1">Browse My Recent</p>
   <h1 class="title">Personal Project</h1>
+
+  <!-- RESCUER SIDE -->
   <h3 class="experience-sub-title" style="text-align: center; margin-bottom: 2rem;">Rescuer Side</h3>
   <div class="experience-details-container">
-    
     <div class="about-containers">
+
       <div class="details-container color-container">
         <div class="article-container">
           <img src="./assets/Registration1.jpg" alt="Project 1" class="project-img" data-full-image="./assets/Registration.jpg" />
@@ -386,7 +388,7 @@
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
           <button class="btn btn-color-2 project-btn"
-            onclick="viewDescription(this, 'Home (Map View)\nThis project developed the Rescuer Home Screen (iLocate Map View), which is the primary interface for situational awareness. It features a map displaying the rescuer\'s live location alongside incoming SOS coordinates, ensuring rapid navigation. A prominent Active Rescue Alerts Notification provides a quick overview of incidents, streamlining the process for responders to access detailed Incident Alert Pages instantly.')">
+            onclick="viewDescription(this, 'Home Map View\nThis project developed the Rescuer Home Screen iLocate Map View, which is the primary interface for situational awareness. It features a map displaying the rescuers live location alongside incoming SOS coordinates, ensuring rapid navigation. A prominent Active Rescue Alerts Notification provides a quick overview of incidents, streamlining the process for responders to access detailed Incident Alert Pages instantly.')">
             Description
           </button>
         </div>
@@ -400,14 +402,12 @@
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
           <button class="btn btn-color-2 project-btn"
-            onclick="viewDescription(this, 'SOS Alerts (Dashboard)\nThis project involves the Emergency Response Dashboard, the central hub for managing incoming distress signals. Designed for speed, it prominently displays crucial incident details (like time and date) and provides rescuers with two critical action buttons: View, to instantly generate directions to the SOS location, and Respond, to accept and initiate the rescue effort. The dashboard is quickly accessible via the dedicated Incident Alert button at the bottom of the screen.')">
+            onclick="viewDescription(this, 'SOS Alerts Dashboard\nThis project involves the Emergency Response Dashboard, the central hub for managing incoming distress signals. Designed for speed, it prominently displays crucial incident details like time and date and provides rescuers with two critical action buttons: View, to instantly generate directions to the SOS location, and Respond, to accept and initiate the rescue effort. The dashboard is quickly accessible via the dedicated Incident Alert button at the bottom of the screen.')">
             Description
           </button>
         </div>
       </div>
-    </div>
 
-    <div class="about-containers">
       <div class="details-container color-container">
         <div class="article-container">
           <img src="./assets/members.1.jpg" alt="Project 4" class="project-img" data-full-image="./assets/members.1.jpg" />
@@ -415,7 +415,8 @@
         <h2 class="experience-sub-title project-title">Team</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Rescuer Team Member Interface, which presents the name of the assigned rescue team along with a list of its members. This interface is accessible via the Rescue Team Button, located at the bottom of the screen, providing responders with quick access to team composition and coordination details.')">
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Rescuer Team Member Interface, which presents the name of the assigned rescue team along with a list of its members. This interface is accessible via the Rescue Team Button, located at the bottom of the screen, providing responders with quick access to team composition and coordination details.')">
             Description
           </button>
         </div>
@@ -428,7 +429,8 @@
         <h2 class="experience-sub-title project-title">Logs</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Rescuer Logs Interface, which displays a comprehensive log of all rescue activities and incidents. This interface is accessible via the Rescue Logs Button, located at the bottom of the screen, providing responders with a detailed history of their operations and performance metrics.')">
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Rescuer Logs Interface, which displays a comprehensive log of all rescue activities and incidents. This interface is accessible via the Rescue Logs Button, located at the bottom of the screen, providing responders with a detailed history of their operations and performance metrics.')">
             Description
           </button>
         </div>
@@ -441,18 +443,21 @@
         <h2 class="experience-sub-title project-title">Settings</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Rescuer Settings Interface is a secure hub where users can manage their account credentials and app preferences in one place. It allows for easy contact detail reviews and password updates, while providing quick access to essential legal policies and terms of use. With integrated logout functionality and persistent navigation, the interface ensures users can manage their data and session security with ease.')">
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Rescuer Settings Interface is a secure hub where users can manage their account credentials and app preferences in one place. It allows for easy contact detail reviews and password updates, while providing quick access to essential legal policies and terms of use. With integrated logout functionality and persistent navigation, the interface ensures users can manage their data and session security with ease.')">
             Description
           </button>
         </div>
       </div>
+
     </div>
+  </div>
 
-    <h3 class="experience-sub-title" style="text-align: center; margin-bottom: 2rem; margin-top: 4rem;">Admin Side</h3>
-
+  <!-- ADMIN SIDE -->
+  <h3 class="experience-sub-title" style="text-align: center; margin-bottom: 2rem; margin-top: 4rem;">Admin Side</h3>
   <div class="experience-details-container">
-    
     <div class="about-containers">
+
       <div class="details-container color-container">
         <div class="article-container">
           <img src="./assets/h.admin.png" alt="Admin Project 1" class="project-img" data-full-image="./assets/h.admin.png" />
@@ -460,7 +465,10 @@
         <h2 class="experience-sub-title project-title">Home</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The real-time monitoring feature allows administrators to track responder locations via GPS markers on a map interface. Active rescuers are marked in green, inactive ones in yellow, and the rescuee in red. This system enables administrators to track movements, identify coverage gaps, and assign tasks based on proximity to distress calls. By ensuring rescuers are strategically positioned, the tool enhances operational safety and improves the efficiency of disaster response coordination.')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The real-time monitoring feature allows administrators to track responder locations via GPS markers on a map interface. Active rescuers are marked in green, inactive ones in yellow, and the rescuee in red. This system enables administrators to track movements, identify coverage gaps, and assign tasks based on proximity to distress calls. By ensuring rescuers are strategically positioned, the tool enhances operational safety and improves the efficiency of disaster response coordination.')">
+            Description
+          </button>
         </div>
       </div>
 
@@ -471,7 +479,10 @@
         <h2 class="experience-sub-title project-title">Alerts</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Admin Alert Dashboard, which allows administrators to manage incoming SOS signals. It includes a View Button that opens the map view along with detailed information about the incident. Additionally, the Assign Button enables the admin to assign the selected incident to a specific rescue team for response')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Admin Alert Dashboard, which allows administrators to manage incoming SOS signals. It includes a View Button that opens the map view along with detailed information about the incident. Additionally, the Assign Button enables the admin to assign the selected incident to a specific rescue team for response')">
+            Description
+          </button>
         </div>
       </div>
 
@@ -482,12 +493,13 @@
         <h2 class="experience-sub-title project-title">Assign</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Admin Assign Incident Interface, which includes key  elements for assigning a rescue task. The Group Selection Dropdown allows the admin to choose the rescue team to handle the specific incident. The interface also includes a Confirm Button to finalize the assignment and a Cancel Button to abort the action and return to the previous screen.')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Admin Assign Incident Interface, which includes key  elements for assigning a rescue task. The Group Selection Dropdown allows the admin to choose the rescue team to handle the specific incident. The interface also includes a Confirm Button to finalize the assignment and a Cancel Button to abort the action and return to the previous screen.')">
+            Description
+          </button>
         </div>
       </div>
-    </div>
 
-    <div class="about-containers">
       <div class="details-container color-container">
         <div class="article-container">
           <img src="./assets/team.admin.jpg" alt="Admin Project 4" class="project-img" data-full-image="./assets/team.admin.jpg" />
@@ -495,7 +507,10 @@
         <h2 class="experience-sub-title project-title">Team</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Admin Team Management Interface, which allows administrators to manage rescue teams. It includes a View Button that opens the team details and a Manage Button to edit or remove team members.')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Admin Team Management Interface, which allows administrators to manage rescue teams. It includes a View Button that opens the team details and a Manage Button to edit or remove team members.')">
+            Description
+          </button>
         </div>
       </div>
 
@@ -506,7 +521,10 @@
         <h2 class="experience-sub-title project-title">Add Team</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Admin Add Team Interface, which allows administrators to add new rescue teams. It includes fields for team name and team members, along with a Submit Button to finalize the addition and a Cancel Button to abort the action.')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Admin Add Team Interface, which allows administrators to add new rescue teams. It includes fields for team name and team members, along with a Submit Button to finalize the addition and a Cancel Button to abort the action.')">
+            Description
+          </button>
         </div>
       </div>
 
@@ -517,17 +535,21 @@
         <h2 class="experience-sub-title project-title">Logs</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'the Incident Monitoring Interface, showing key information for each incident. Each entry provides a real-time status such as In Progress or Resolved for easy tracking. The administrator can quickly locate specific incidents using the Search Bar and Filter Option. Additionally, the Archive button enables administrators to move completed or inactive incidents to the archived list for record-keeping purposes.')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'the Incident Monitoring Interface, showing key information for each incident. Each entry provides a real-time status such as In Progress or Resolved for easy tracking. The administrator can quickly locate specific incidents using the Search Bar and Filter Option. Additionally, the Archive button enables administrators to move completed or inactive incidents to the archived list for record-keeping purposes.')">
+            Description
+          </button>
         </div>
       </div>
+
     </div>
   </div>
 
+  <!-- MODALS -->
   <h3 class="experience-sub-title" style="text-align: center; margin-bottom: 2rem; margin-top: 4rem;">Modals</h3>
-
   <div class="experience-details-container">
     <div class="about-containers">
-      
+
       <div class="details-container color-container">
         <div class="article-container">
           <img src="./assets/login.other.jpg" alt="Login Success Modal" class="project-img" data-full-image="./assets/login.other.jpg" />
@@ -535,7 +557,10 @@
         <h2 class="experience-sub-title project-title">Login</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Success Dialog serves as an immediate feedback mechanism after a user provides valid credentials. It features a green-themed layout that welcomes the user, confirms their specific role, and ensures they are aware of their successful session start before entering the dashboard.')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Success Dialog serves as an immediate feedback mechanism after a user provides valid credentials. It features a green-themed layout that welcomes the user, confirms their specific role, and ensures they are aware of their successful session start before entering the dashboard.')">
+            Description
+          </button>
         </div>
       </div>
 
@@ -546,7 +571,10 @@
         <h2 class="experience-sub-title project-title">Status</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Status Update Dialog is a critical confirmation step used when assigning incidents to a specific rescue group. It includes a cautionary, This action cannot be undone, preventing accidental assignments and ensuring that administrators are certain before deploying resources to a distress location.')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Status Update Dialog is a critical confirmation step used when assigning incidents to a specific rescue group. It includes a cautionary, This action cannot be undone, preventing accidental assignments and ensuring that administrators are certain before deploying resources to a distress location.')">
+            Description
+          </button>
         </div>
       </div>
 
@@ -557,15 +585,17 @@
         <h2 class="experience-sub-title project-title">Logout</h2>
         <div class="btn-container">
           <button class="btn btn-color-2 project-btn" onclick="viewFullImage(this)">View</button>
-          <button class="btn btn-color-2 project-btn" onclick="viewDescription(this, 'The Logout Confirmation Dialog acts as a security checkpoint to prevent accidental session termination. By requiring the user to confirm their intent to leave, it protects ongoing work and ensures that the user is intentionally ending their access to the sensitive data within the application.')">Description</button>
+          <button class="btn btn-color-2 project-btn"
+            onclick="viewDescription(this, 'The Logout Confirmation Dialog acts as a security checkpoint to prevent accidental session termination. By requiring the user to confirm their intent to leave, it protects ongoing work and ensures that the user is intentionally ending their access to the sensitive data within the application.')">
+            Description
+          </button>
         </div>
       </div>
 
     </div>
   </div>
-
-  </div>
 </section>
+
 
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
@@ -603,6 +633,5 @@
       </nav>
       <p>Copyright &#169; 2025 Jan Matthew Tanchanco. All Rights Reserved.</p>
     </footer>
-    <script src="script.js"></script>
   </body>
 </html>

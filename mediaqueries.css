@@ -6,9 +6,12 @@
     align-items: center;
     justify-content: center;
   }
+
+  /* keep for general flex layouts */
   .about-containers {
     flex-wrap: wrap;
   }
+
   #contact,
   #projects {
     height: fit-content;
@@ -25,7 +28,7 @@
 
   /* ABOUT SECTION ADJUSTMENTS */
   #about .section-container {
-    flex-direction: column; /* Stacks image on top of boxes/bio */
+    flex-direction: column;
     align-items: center;
   }
 
@@ -46,23 +49,23 @@
   }
 
   .sub-title-med {
-    text-align: center; /* Centers titles when stacked on tablet/mobile */
+    text-align: center;
   }
 
   #experience,
   .experience-details-container {
     margin-top: 2rem;
   }
-  
+
   .section__pic-container {
-    width: 275px; 
+    width: 275px;
     height: 275px;
     margin: 0 auto 2rem;
   }
-  
+
   #profile {
     height: auto;
-    min-height: 100vh; 
+    min-height: 100vh;
     padding-top: 15vh;
   }
 
@@ -73,7 +76,7 @@
 
   section {
     margin: 0 5%;
-    padding-bottom: 5rem; 
+    padding-bottom: 5rem;
   }
 
   .about-containers {
@@ -86,95 +89,184 @@
     height: calc(160px + (var(--percent) * 0.7px));
     border-radius: 62.5px;
   }
+
   .skills-row {
     gap: 1.5rem;
+  }
+
+  /* ✅ PROJECTS – TABLET: 2 PER ROW */
+  #projects .experience-details-container .about-containers {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+  }
+
+  /* ✅ PROJECTS – keep images consistent (no forced card height) */
+  #projects .article-container {
+    height: 260px !important;
+    overflow: hidden !important;
   }
 }
 
 @media screen and (max-width: 900px) {
-  /* This ensures the timeline doesn't look cramped on smaller tablets */
   .timeline-v2 {
     padding-left: 15px;
   }
-  
+
   .timeline-v2-card {
     padding: 1rem;
   }
 }
 
 @media screen and (max-width: 600px) {
+  /* ===== APP-LIKE RESPONSIVE ENHANCEMENTS ===== */
+  body {
+    overscroll-behavior: none;
+  }
+
   #contact,
   footer {
     height: auto;
     padding: 2rem 0;
   }
+
   #profile {
     min-height: 100vh;
     height: auto;
     padding-top: 15vh;
   }
+
+  section {
+    margin: 0;
+    padding: 6rem 1.25rem 4rem;
+    min-height: auto;
+  }
+
+  nav {
+    height: 10vh;
+  }
+
   article {
     font-size: 1rem;
   }
+
   footer nav {
     height: fit-content;
     margin-bottom: 2rem;
   }
+
   .about-containers,
   .contact-info-upper-container,
   .btn-container {
     flex-wrap: wrap;
     gap: 1rem;
   }
+
   .contact-info-container {
     margin: 0;
   }
+
   .contact-info-container p,
   .nav-links li a {
     font-size: 1rem;
   }
+
   .experience-sub-title {
     font-size: 1.25rem;
   }
+
   .logo {
     font-size: 1.5rem;
   }
+
   .nav-links {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
   }
+
   .section__pic-container {
     width: 200px;
-    height: 200px; 
+    height: 200px;
     margin: 0 auto 2rem;
   }
+
   .section__text__p2 {
     font-size: 1.25rem;
   }
+
   .title {
     font-size: 2rem;
   }
+
   .text-container {
     text-align: justify;
   }
 
-  /* SKILLS MOBILE SIZING */
-  .skill-oval {
-    width: 110px;
-    height: calc(140px + (var(--percent) * 0.6px)); 
-    border-radius: 55px;
+  .btn {
+    width: 100%;
+    max-width: 320px;
   }
+
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .details-container,
+  .timeline-v2-card,
+  .description-container {
+    border-radius: 1.25rem;
+  }
+
+  /* ✅ PROJECTS – MOBILE: 1 PER ROW */
+  #projects .experience-details-container .about-containers {
+    display: grid !important;
+    grid-template-columns: 1fr;
+  }
+
+  /* ✅ PROJECTS – mobile image height only */
+  #projects .article-container {
+    height: 240px !important;
+    overflow: hidden !important;
+  }
+
+  #projects .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  /* SKILLS MOBILE SIZING */
+  .skills-row {
+    justify-content: center;
+  }
+
+  .skill-oval {
+    width: 100px;
+    height: calc(130px + (var(--percent) * 0.5px));
+    border-radius: 50px;
+  }
+
   .skill-icon {
     height: 30px;
   }
+
   .skill-level {
     font-size: 0.65rem;
   }
+
   .skill-name {
     font-size: 0.8rem;
   }
+
   #skills {
     height: fit-content;
+  }
+
+  footer {
+    margin: 0;
   }
 }
