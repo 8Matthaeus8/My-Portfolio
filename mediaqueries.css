@@ -257,6 +257,28 @@
     max-width: 100%;
   }
 
+  /* ✅ ABOUT – stack Experience above Education */
+  #about .about-containers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  #about .details-container {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  #about .details-container:nth-child(1) {
+    order: 1; /* Experience */
+  }
+
+  #about .details-container:nth-child(2) {
+    order: 2; /* Education */
+  }
+
   /* BUTTONS */
   .btn {
     width: 100%;
@@ -346,6 +368,7 @@
     margin: 0;
   }
 }
+
 
 /* =========================
    375px BELOW (SMALL MOBILE)
