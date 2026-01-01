@@ -178,6 +178,10 @@
     height: 60px; /* ✅ fixed mobile height */
   }
 
+  :root {
+  --nav-height: 60px;
+}
+
   /* CONTACT / FOOTER */
   #contact,
   footer {

@@ -31,6 +31,10 @@ a,
 
 /* DESKTOP NAV */
 
+:root {
+  --nav-height: 100px; /* ✅ single source of truth */
+}
+
 nav,
 .nav-links {
   display: flex;
@@ -41,19 +45,31 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+
   width: 100%;
   z-index: 9999;
 
   background-color: #1E3A8A;
 
-  height: 72px;            /* ✅ fixed height */
-  padding: 0 24px;         /* ✅ spacing */
+  height: var(--nav-height);     /* ✅ uses variable */
+  min-height: var(--nav-height); /* ✅ prevents shrink */
+  padding: 0 24px;
+
   box-shadow: none;
   border-bottom: none;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+/* ✅ Fix the white gap on anchor click (Contact/About/etc.) */
+body {
+  padding-top: var(--nav-height);
+}
+
+section {
+  scroll-margin-top: var(--nav-height);
 }
 
 /* Logo */
@@ -108,11 +124,9 @@ nav {
   width: 100%;
 }
 
-
 /* =========================
    HAMBUGER MENU
    ========================= */
-
 
 #hamburger-nav {
   display: none;
