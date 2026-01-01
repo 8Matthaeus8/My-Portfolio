@@ -375,22 +375,43 @@ article {
 
 
 /* =========================
-   PROFILE SECTION – STYLING
+   PROFILE SECTION – STYLING (UPDATED)
    ========================= */
 
 #profile {
+  /* ✅ Break out of global section max-width so background is FULL WIDTH */
+  width: 100%;
+  max-width: none;
+  margin: 0;
+
+  /* ✅ Full hero height (minus fixed navbar height) */
+  min-height: calc(100vh - 72px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  justify-content: flex-start;
-  padding-top: 2rem;
+  justify-content: center; /* ✅ center content vertically */
 
   gap: 2rem;
-  min-height: calc(100vh - 72vh);
-  margin: 0 auto;
+  padding: 4rem 1.5rem;
 
-  background-color: #ffffff;
+  background: url("./assets/Hero-Banner-Background.jpg") center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ✅ Dark overlay for better text visibility */
+#profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+/* ✅ Keep all content above the overlay */
+#profile > * {
   position: relative;
   z-index: 1;
 }
@@ -409,13 +430,20 @@ article {
   border-radius: 50%;
 }
 
-.section__text {
+/* ✅ Make hero text readable */
+#profile .section__text {
   text-align: center;
+  color: #ffffff;
 }
 
-/* ✅ Name color */
+#profile .section__text__p1,
+#profile .section__text__p2 {
+  color: #ffffff;
+}
+
+/* ✅ Name color (white for visibility on hero bg) */
 #profile .title {
-  color: #1E3A8A; /* Blue */
+  color: #ffffff;
 }
 
 .section__text__p2 {
@@ -435,8 +463,8 @@ article {
 #profile .btn-color-1,
 #profile .btn-color-2 {
   background-color: transparent;
-  color: #1E3A8A;
-  border-color: #1E3A8A;
+  color: #ffffff;
+  border-color: #ffffff;
   transition:
     background-color 300ms ease,
     color 300ms ease,
@@ -470,15 +498,15 @@ article {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-/* ✅ Social icons: default blue */
+/* Default: Blue (#1E3A8A) */
 #profile #socials-container .icon {
   filter: brightness(0) saturate(100%)
-    invert(18%) sepia(75%) saturate(2676%)
-    hue-rotate(216deg) brightness(90%) contrast(95%);
+    invert(17%) sepia(56%) saturate(1966%)
+    hue-rotate(216deg) brightness(92%) contrast(98%);
   transition: transform 300ms ease, filter 300ms ease;
 }
 
-/* ✅ Social icons hover: Royal Blue */
+/* Hover: Royal Blue (#2563EB) */
 #profile #socials-container .icon:hover {
   transform: translateY(-3px);
   filter: brightness(0) saturate(100%)
@@ -493,7 +521,6 @@ article {
   align-items: center;
   gap: 1.25rem;
 }
-
 
 
 /* ===============================
