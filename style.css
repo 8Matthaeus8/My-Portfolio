@@ -994,70 +994,93 @@ article {
 }
 
 /* =========================
-   CONTACT SECTION (CENTER + NO PEEK FIX)
+   CONTACT SECTION – CENTERED (KEEP SAME LOOK)
    ========================= */
 
 #contact {
-  scroll-margin-top: calc(72px + 24px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+
   min-height: calc(100vh - 72px);
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center; /* ✅ center the whole block */
+
   text-align: center;
 
-  background: #ffffff;
+  background: url("./assets/Contact-Background.jpg") center/cover no-repeat;
   position: relative;
   overflow: hidden;
 }
 
-/* ✅ Move everything slightly up (but don't force width!) */
-#contact > * {
-  position: relative;
-  z-index: 6;
-  transform: translateY(-40px);
-}
-
-/* ✅ Allow contact box to size to its content */
-#contact .contact-info-upper-container {
-  width: max-content !important;
-}
-
-/* stronger top mask (covers the peek) */
+/* Overlay */
 #contact::before {
   content: "";
   position: absolute;
-  top: -40px;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+/* All content above overlay */
+#contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ✅ Keep the exact spacing/appearance like your screenshot */
+#contact .section__text__p1 {
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+#contact .title {
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+/* ✅ Contact pill stays exactly like the screenshot */
+#contact .contact-info-upper-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+
+  padding: 0.6rem 0.75rem;
+  margin-top: 0; /* ✅ don't push it down too far */
+  width: max-content;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+/* ✅ Copyright pinned to bottom */
+#contact .copyright {
+  position: absolute;
+  bottom: 1.5rem;
   left: 0;
   right: 0;
-  height: 60px;
-  background: #ffffff;
-  pointer-events: none;
-  z-index: 5;
-}
 
-/* ✅ Only limit width for the TEXT elements (not the button container) */
-#contact .title,
-#contact .section__text__p1,
-#contact .copyright {
+  color: #ffffff;
+  font-size: 0.85rem;
+  text-align: center;
   width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* Mobile sticky nav height */
+/* =========================
+   MOBILE
+   ========================= */
+
 @media screen and (max-width: 600px) {
   #contact {
-    scroll-margin-top: calc(10vh + 24px);
-    min-height: calc(100vh - 10vh);
-    padding: 0 1.25rem; /* breathing room */
-  }
-
-  #contact::before {
-    top: -40px;
-    height: 60px;
+    padding: 0 1.25rem;
   }
 }
 
@@ -1073,17 +1096,17 @@ article {
   gap: 0.75rem;
 
   border-radius: 2rem;
-  border: 1px solid rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
 
   margin-top: 1rem;
   padding: 0.6rem 0.75rem;
 
-  width: max-content;        /* ✅ hugs buttons */
-  max-width: 100%;           /* ✅ prevents overflow */
-  flex-wrap: wrap;           /* ✅ wraps on small screens */
+  width: max-content;
+  max-width: 100%;
+  flex-wrap: wrap;
 }
-
 
 /* =========================
    CONTACT BUTTONS
@@ -1097,7 +1120,7 @@ article {
 
   padding: 0.75rem 1.15rem;
   border-radius: 2rem;
-  border: 1px solid #1E3A8A;
+  border: 1px solid #ffffff;
 
   text-decoration: none;
   font-weight: 600;
@@ -1128,7 +1151,7 @@ article {
 .gmail-btn:hover,
 .gmail-btn:active,
 .gmail-btn:focus-visible {
-  background-color: #2563EB; /* Royal Blue */
+  background-color: #2563EB;
   border-color: #2563EB;
   color: #ffffff;
   transform: translateY(-2px);
@@ -1137,9 +1160,9 @@ article {
 
 /* LinkedIn secondary (default) */
 .linkedin-btn {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
   color: #1E3A8A;
-  border-color: #1E3A8A;
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
 .linkedin-btn img {
@@ -1152,7 +1175,7 @@ article {
 .linkedin-btn:hover,
 .linkedin-btn:active,
 .linkedin-btn:focus-visible {
-  background-color: #2563EB; /* Royal Blue */
+  background-color: #2563EB;
   border-color: #2563EB;
   color: #ffffff;
   transform: translateY(-2px);
@@ -1181,11 +1204,14 @@ article {
   outline: none;
 }
 
-/* Copyright */
-#contact .copyright {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: black;
-  text-align: center;
-  width: 100%;
+/* =========================
+   MOBILE
+   ========================= */
+
+@media screen and (max-width: 600px) {
+  #contact {
+    scroll-margin-top: calc(10vh + 24px);
+    min-height: calc(100vh - 10vh);
+    padding: 0 1.25rem;
+  }
 }
