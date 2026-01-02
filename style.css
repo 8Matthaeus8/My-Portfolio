@@ -62,11 +62,6 @@ nav {
   align-items: center;
 }
 
-/* ✅ Fix the white gap on anchor click (Contact/About/etc.) */
-section {
-  scroll-margin-top: var(--nav-height);
-}
-
 /* Logo */
 .logo {
   font-size: 2rem;
@@ -286,7 +281,6 @@ section {
   margin: 0 auto;
   width: 100%;
   max-width: 1300px;
-  min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -384,7 +378,6 @@ article {
   margin: 0;
 
   min-height: calc(100vh - var(--nav-height));
-  scroll-margin-top: var(--nav-height);
 
   display: flex;
   flex-direction: column;
@@ -392,7 +385,7 @@ article {
   justify-content: center;
 
   gap: 2rem;
-  padding: 4rem 1.5rem;
+  padding: 2.5rem 1.5rem 3.5rem;
 
   background: url("./assets/Hero-Banner-Background.jpg") center/cover no-repeat;
   position: relative;
@@ -850,10 +843,11 @@ article {
 
 #projects {
   position: relative;
-
-  /* ✅ Prevent any inner “scroll container” behavior */
   overflow-x: hidden;
   overflow-y: visible;
+
+  /* ✅ prevents iOS "scroll container" feel */
+  overscroll-behavior: auto;
 }
 
 /* ✅ Personal Project title = blue */
@@ -866,62 +860,69 @@ article {
   color: #000000;
 }
 
-/* ✅ FIX: stop Rescuer/Admin/Modals containers from being scrollable */
+/* ✅ HARD STOP: nothing inside Projects can become a scroll container */
 #projects .experience-details-container,
-#projects .experience-details-container .about-containers {
+#projects .experience-details-container .about-containers,
+#projects .details-container {
   height: auto !important;
   max-height: none !important;
   overflow: visible !important;
 
-  /* ✅ helps mobile “scroll grab” */
+  /* ✅ remove "scroll grabbing" behaviors */
   -webkit-overflow-scrolling: auto !important;
-  overscroll-behavior: auto;
-  touch-action: pan-y;
+  overscroll-behavior: auto !important;
+  touch-action: auto !important;
 }
 
+/* ✅ Grid layout (desktop: 3 per row) */
 #projects .experience-details-container .about-containers {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
+
   align-items: start;
 }
 
-/* ✅ ALL cards use natural height (Admin/Modals size) */
+/* ✅ Cards use natural height */
 #projects .details-container {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* uniform image box (same as Admin/Modals) */
+/* ✅ Image box (fixed height desktop) */
 #projects .article-container {
   width: 100%;
   height: 260px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: hidden;
+  border-radius: 2rem; /* ✅ keep border consistent with image */
 }
 
-/* uniform image sizing */
+/* ✅ Image sizing */
 #projects .project-img {
   width: 100%;
   height: 100%;
   border-radius: 2rem;
   object-fit: cover;
   object-position: top;
+  display: block;
 }
 
-/* titles/buttons */
+/* ✅ Titles/buttons */
 #projects .project-title {
   margin: 1rem 0;
   color: black;
 }
 
-/* buttons stay naturally after content */
 #projects .btn-container {
   margin-top: 1rem;
   display: flex;
@@ -933,7 +934,6 @@ article {
    PROJECT BUTTON STYLES
    ========================= */
 
-/* ✅ VIEW button = blue fill + white text (default) */
 #projects .btn.btn-color-1 {
   background-color: #1E3A8A;
   color: #ffffff;
@@ -946,18 +946,16 @@ article {
     box-shadow 300ms ease;
 }
 
-/* ✅ VIEW button interaction: hover + tap + keyboard */
 #projects .btn.btn-color-1:hover,
 #projects .btn.btn-color-1:active,
 #projects .btn.btn-color-1:focus-visible {
-  background-color: #2563EB; /* Royal Blue */
+  background-color: #2563EB;
   border-color: #2563EB;
   color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-/* ✅ DESCRIPTION button = white fill + blue text/border (default) */
 #projects .btn.btn-color-2 {
   background-color: #ffffff;
   color: #1E3A8A;
@@ -970,18 +968,20 @@ article {
     box-shadow 300ms ease;
 }
 
-/* ✅ DESCRIPTION button interaction: hover + tap + keyboard */
 #projects .btn.btn-color-2:hover,
 #projects .btn.btn-color-2:active,
 #projects .btn.btn-color-2:focus-visible {
-  background-color: #2563EB; /* Royal Blue */
+  background-color: #2563EB;
   border-color: #2563EB;
   color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-/* MODAL STYLES */
+/* =========================
+   MODAL STYLES
+   ========================= */
+
 .image-overlay {
   position: fixed;
   top: 0;
@@ -1077,6 +1077,12 @@ article {
 #contact .title {
   color: #ffffff;
   margin-bottom: 2rem;
+}
+
+#contact .contact-info-container {
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
 }
 
 /* ✅ Contact pill stays exactly like the screenshot */
