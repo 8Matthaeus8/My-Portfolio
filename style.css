@@ -490,20 +490,20 @@ article {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-/* Default: Blue (#1E3A8A) */
+/* Default: WHITE icons */
 #profile #socials-container .icon {
   filter: brightness(0) saturate(100%)
-    invert(17%) sepia(56%) saturate(1966%)
-    hue-rotate(216deg) brightness(92%) contrast(98%);
+    invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(0deg) brightness(100%) contrast(100%);
   transition: transform 300ms ease, filter 300ms ease;
 }
 
-/* Hover: Royal Blue (#2563EB) */
+/* Hover: LINKEDIN BLUE (#0A66C2) */
 #profile #socials-container .icon:hover {
   transform: translateY(-3px);
   filter: brightness(0) saturate(100%)
-    invert(39%) sepia(98%) saturate(1654%)
-    hue-rotate(213deg) brightness(95%) contrast(101%);
+    invert(30%) sepia(93%) saturate(1864%)
+    hue-rotate(199deg) brightness(94%) contrast(101%);
 }
 
 /* Center and space social icons */
