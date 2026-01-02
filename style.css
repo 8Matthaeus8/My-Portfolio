@@ -272,19 +272,28 @@ nav {
 }
 
 /* =========================
-   GLOBAL SECTIONS
+   GLOBAL SECTION (SAFE ONLY)
    ========================= */
 
 section {
+  scroll-margin-top: var(--nav-height);
+}
+
+/* =========================
+   SECTION LAYOUT (NEW SYSTEM)
+   ========================= */
+
+.section-layout {
   padding-top: 6vh;
   padding-bottom: 5vh;
+
   margin: 0 auto;
   width: 100%;
   max-width: 1300px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  scroll-margin-top: var(--nav-height);
 }
 
 .section-container {
@@ -835,6 +844,13 @@ article {
 
 #skills .skill-name {
   text-align: center;
+}
+
+#skills .skill-percent {
+  font-size: 1.25rem;   /* ⬆ larger */
+  font-weight: 800;     /* extra bold */
+  color: #000000;
+  margin-top: 0.3rem;
 }
 
 /* =========================

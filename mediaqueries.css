@@ -94,13 +94,13 @@
     padding-top: 2rem;
   }
 
-  section {
+  /* ✅ SECTION LAYOUT system (replaces global section layout rules) */
+  .section-layout {
     margin: 0;
     padding: 6rem 5% 5rem;
     min-height: auto;
     max-width: 100%;
     overflow-x: hidden;
-    scroll-margin-top: 72px;
   }
 
   html,
@@ -202,13 +202,15 @@
     padding-top: var(--nav-height);
   }
 
-  /* ✅ Use ONE scroll offset rule for all sections (including Contact) */
-  section,
+  /* ✅ Keep only if you want extra safety for these full-width sections */
+  #profile,
+  #about,
   #contact {
     scroll-margin-top: var(--nav-height);
   }
 
-  section {
+  /* ✅ SECTION LAYOUT system (replaces global section layout rules) */
+  .section-layout {
     margin: 0;
     padding: 6rem 1.25rem 4rem;
     min-height: auto;
@@ -296,8 +298,6 @@
     order: 2;
   }
 
-  /* Education */
-
   /* PROJECTS – MOBILE: 1 PER ROW */
   #projects .experience-details-container .about-containers {
     grid-template-columns: 1fr;
@@ -322,15 +322,22 @@
     font-size: 0.8rem;
   }
 
+  /* ✅ Reduce skill level text to fit inside oval */
+  .skill-level {
+    font-size: 0.7rem;
+  }
+
+  #skills .skill-percent {
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
   /* ✅ CONTACT: pill auto-fits Gmail width (no overflow) */
   #contact .contact-info-upper-container {
     display: inline-flex;
     flex-direction: column;
-    /* stack Gmail above LinkedIn */
     width: fit-content;
-    /* hug content */
     max-width: calc(100% - 2rem);
-    /* never exceed screen */
     margin: 1rem auto 0;
     gap: 0.75rem;
   }
@@ -386,6 +393,15 @@
     max-width: 280px;
   }
 
+  .skill-level {
+    font-size: 0.68rem;
+  }
+
+  #skills .skill-percent {
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
   /* ✅ Gmail button font size (mobile) */
   #contact .gmail-btn {
     font-size: 14px;
@@ -426,6 +442,15 @@
   #about {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .skill-level {
+    font-size: 0.65rem;
+  }
+
+  #skills .skill-percent {
+    font-size: 1rem;
+    font-weight: 800;
   }
 
   #contact .contact-info-container {
