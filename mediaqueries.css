@@ -6,21 +6,25 @@
    1400px BELOW (LARGE TABLET / SMALL LAPTOP)
    ========================= */
 @media screen and (max-width: 1400px) {
-  /* PROFILE */
+
   #profile {
-    min-height: calc(100vh - 72px); /* ✅ match fixed nav */
+    min-height: calc(100vh - 72px);
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* ABOUT (general flex wrap) */
   .about-containers {
     flex-wrap: wrap;
   }
 
-  /* CONTACT / PROJECTS */
+  .about-details-container,
+  .expertise-education-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   #contact,
   #projects {
     height: fit-content;
@@ -31,15 +35,20 @@
    1200px BELOW (TABLET)
    ========================= */
 @media screen and (max-width: 1200px) {
-  /* NAV */
+
   #desktop-nav {
     display: none;
   }
+
   #hamburger-nav {
     display: flex;
   }
 
-  /* ABOUT */
+  #about {
+    padding-top: calc(6rem + 10px);
+    padding-bottom: calc(5rem + 10px);
+  }
+
   #about .section-container {
     flex-direction: column;
     align-items: center;
@@ -49,19 +58,16 @@
     width: 100%;
   }
 
-  /* ✅ Center bio on tablet */
   #about .text-container {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* Expertise/Education layout */
   .expertise-education-wrapper {
     flex-direction: column;
     gap: 3rem;
     margin-top: 3rem;
-    width: 100%;
   }
 
   .info-column {
@@ -72,30 +78,20 @@
     text-align: center;
   }
 
-  /* EXPERIENCE SECTION SPACING */
   #experience,
   .experience-details-container {
     margin-top: 2rem;
   }
 
-  /* GLOBAL IMAGE CONTAINERS */
   .section__pic-container {
     width: 275px;
     height: 275px;
     margin: 0 auto 2rem;
   }
 
-  /* PROFILE */
   #profile {
-    height: auto;
-    min-height: calc(100vh - 72px); /* ✅ match fixed nav */
-    padding-top: 2rem;              /* ✅ no vh offset */
-  }
-
-  /* GLOBAL SECTIONS */
-  section,
-  .section-container {
-    height: fit-content;
+    min-height: calc(100vh - 72px);
+    padding-top: 2rem;
   }
 
   section {
@@ -104,7 +100,7 @@
     min-height: auto;
     max-width: 100%;
     overflow-x: hidden;
-    scroll-margin-top: 90px; /* ✅ 72px nav + buffer */
+    scroll-margin-top: 72px;
   }
 
   html,
@@ -112,11 +108,6 @@
     overflow-x: hidden;
   }
 
-  .about-containers {
-    margin-top: 0;
-  }
-
-  /* SKILLS */
   .skill-oval {
     width: 125px;
     height: calc(160px + (var(--percent) * 0.7px));
@@ -127,18 +118,12 @@
     gap: 1.5rem;
   }
 
-  /* PROJECTS – TABLET: 2 PER ROW */
   #projects .experience-details-container .about-containers {
-    display: grid !important;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    width: 100%;
   }
 
-  /* PROJECTS – consistent image height */
   #projects .article-container {
     height: 260px !important;
-    overflow: hidden !important;
   }
 }
 
@@ -146,13 +131,48 @@
    900px BELOW (SMALL TABLET)
    ========================= */
 @media screen and (max-width: 900px) {
-  /* TIMELINE */
-  .timeline-v2 {
-    padding-left: 15px;
-  }
-
   .timeline-v2-card {
     padding: 1rem;
+  }
+
+  #contact .contact-info-upper-container {
+    display: inline-flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    margin: 1rem auto 0;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+  }
+
+  #contact .contact-info-container {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+
+    /* ✅ allow long email to wrap instead of overflow */
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #profile .section__pic-container {
+    width: min(320px, 80vw);
+    height: min(320px, 80vw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #profile .section__pic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
   }
 }
 
@@ -160,118 +180,100 @@
    600px BELOW (MOBILE)
    ========================= */
 @media screen and (max-width: 600px) {
-  /* ✅ FIX: remove right-side space / horizontal overflow */
+
   html,
   body {
     width: 100%;
     overflow-x: hidden;
   }
 
-  /* GENERAL */
+  /* SINGLE SOURCE OF TRUTH */
+  :root {
+    --nav-height: 90px;
+  }
+
+  nav,
+  #hamburger-nav {
+    height: var(--nav-height);
+  }
+
   body {
     overscroll-behavior: none;
-    padding-top: 60px; /* ✅ match mobile nav height */
+    padding-top: var(--nav-height);
   }
 
-  /* NAV */
-  nav {
-    height: 60px; /* ✅ fixed mobile height */
+  /* ✅ Use ONE scroll offset rule for all sections (including Contact) */
+  section,
+  #contact {
+    scroll-margin-top: var(--nav-height);
   }
 
-  :root {
-  --nav-height: 60px;
-}
-
-  /* CONTACT / FOOTER */
-  #contact,
-  footer {
-    height: auto;
-    padding: 2rem 0;
-  }
-
-  /* PROFILE */
-  #profile {
-    min-height: calc(100vh - 60px); /* ✅ match mobile nav */
-    height: auto;
-    padding-top: 2rem;              /* ✅ no vh offset */
-  }
-
-  /* GLOBAL SECTIONS */
   section {
     margin: 0;
     padding: 6rem 1.25rem 4rem;
     min-height: auto;
-    max-width: 100%;
-    overflow-x: hidden;
-    scroll-margin-top: 75px; /* ✅ 60px nav + buffer */
   }
 
-  /* TYPOGRAPHY */
-  article {
-    font-size: 1rem;
+  #contact,
+  footer {
+    padding-bottom: 2rem;
   }
 
-  footer nav {
-    height: fit-content;
-    margin-bottom: 2rem;
+  #profile {
+    min-height: calc(100vh - var(--nav-height));
+    padding-top: 2rem;
   }
 
-  /* FLEX WRAPS */
-  .about-containers,
-  .btn-container {
-    flex-wrap: wrap;
-    gap: 1rem;
-    max-width: 100%;
+  /* ✅ PROFILE IMAGE (center + responsive) */
+  #profile .section__pic-container {
+    width: min(260px, 78vw);
+    height: min(260px, 78vw);
+    margin: 0 auto 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .contact-info-container {
-    margin: 0;
+  #profile .section__pic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
   }
 
-  .contact-info-container p,
-  .nav-links li a {
-    font-size: 1rem;
-  }
-
-  .experience-sub-title {
-    font-size: 1.25rem;
+  /* ✅ Keep other section images normal */
+  #about .section__pic-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
   }
 
   .logo {
     font-size: 1.5rem;
   }
 
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-
-  /* IMAGE CONTAINERS */
-  .section__pic-container {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 2rem;
-    max-width: 100%;
-  }
-
-  .section__text__p2 {
+  .experience-sub-title {
     font-size: 1.25rem;
   }
 
-  .title {
-    font-size: 2rem;
+  .btn {
+    width: 100%;
+    max-width: 320px;
   }
 
-  /* ✅ Center bio on mobile */
-  #about .text-container {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* ✅ ABOUT – stack Experience above Education */
+  .details-container,
+  .timeline-v2-card,
+  .description-container {
+    border-radius: 1.25rem;
+  }
+
+  /* ✅ ABOUT: Experience above, Education below */
   #about .about-containers {
     display: flex;
     flex-direction: column;
@@ -286,74 +288,24 @@
   }
 
   #about .details-container:nth-child(1) {
-    order: 1; /* Experience */
+    order: 1;
   }
 
+  /* Experience */
   #about .details-container:nth-child(2) {
-    order: 2; /* Education */
+    order: 2;
   }
 
-  /* BUTTONS */
-  .btn {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .btn-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* RADIUS */
-  .details-container,
-  .timeline-v2-card,
-  .description-container {
-    border-radius: 1.25rem;
-    max-width: 100%;
-  }
+  /* Education */
 
   /* PROJECTS – MOBILE: 1 PER ROW */
-  #projects {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  #projects .experience-details-container,
   #projects .experience-details-container .about-containers {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  #projects .experience-details-container .about-containers {
-    display: grid !important;
     grid-template-columns: 1fr;
   }
 
-  /* ✅ PROJECTS – MOBILE: ALL images in square box (Rescuer/Admin/Modals) */
   #projects .article-container {
+    aspect-ratio: 1 / 1;
     height: auto !important;
-    aspect-ratio: 1 / 1 !important;
-    width: 100% !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden !important;
-    border-radius: 2rem;
-    max-width: 100%;
-  }
-
-  #projects .project-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: top !important;
-    border-radius: 2rem;
-    max-width: 100%;
-  }
-
-  /* SKILLS */
-  .skills-row {
-    justify-content: center;
   }
 
   .skill-oval {
@@ -366,185 +318,128 @@
     height: 30px;
   }
 
-  .skill-level {
-    font-size: 0.65rem;
-  }
-
   .skill-name {
     font-size: 0.8rem;
   }
 
-  #skills {
-    height: fit-content;
-  }
-
-  footer {
-    margin: 0;
-  }
-
-  /* =========================
-     ✅ CONTACT FIX (MOBILE)
-     ========================= */
-
-  /* ✅ gray container MUST hug content (not full width) */
+  /* ✅ CONTACT: pill auto-fits Gmail width (no overflow) */
   #contact .contact-info-upper-container {
-    display: inline-flex !important;
-    width: fit-content !important;
-    max-width: calc(100% - 2rem) !important;
-    margin: 1rem auto 0 !important;
-
-    padding: 0.75rem 1rem !important;
-    gap: 0.75rem !important;
-
-    justify-content: center !important;
-    align-items: center !important;
-
-    flex-wrap: wrap !important; /* stack if needed */
+    display: inline-flex;
+    flex-direction: column;
+    /* stack Gmail above LinkedIn */
+    width: fit-content;
+    /* hug content */
+    max-width: calc(100% - 2rem);
+    /* never exceed screen */
+    margin: 1rem auto 0;
+    gap: 0.75rem;
   }
 
-  /* ✅ prevent Gmail button from stretching too wide */
+  /* ✅ buttons should never overflow, they wrap instead */
   #contact .contact-info-container {
-    width: auto !important;
-    max-width: 100% !important;
-    padding: 0.7rem 1rem !important;
-
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-
-  /* ✅ Center copyright text on mobile */
-  #contact .copyright {
-    text-align: center;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* Make contact buttons equal width (clean mobile look) */
-  #contact .contact-info-container {
-    width: 100% !important;
-    max-width: 320px !important;   /* adjust if you want */
+    max-width: 100%;
     justify-content: center;
+
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
-  /* Now the gray container hugs the button width */
-  #contact .contact-info-upper-container {
-    width: fit-content !important;
-    padding: 0.75rem 1rem !important;
+  /* ✅ Gmail button font size (mobile) */
+  #contact .gmail-btn {
+    font-size: 15px;
   }
+
 }
 
+
 /* =========================
-   375px BELOW (SMALL MOBILE)
+   375px BELOW
    ========================= */
 @media screen and (max-width: 375px) {
-  /* NAV: prevent logo + burger from breaking layout */
+
   nav {
     padding: 0 1rem;
   }
 
   .logo {
     font-size: 1.25rem;
-    line-height: 1.2;
     max-width: 75%;
-    white-space: normal;
   }
 
-  /* PROFILE: tighter spacing */
-  #profile {
-    padding-top: 2rem; /* ✅ keep consistent */
-    gap: 1.25rem;
-  }
-
-  /* PROFILE IMAGE: smaller + consistent circle */
   #profile .section__pic-container {
-    width: 180px;
-    height: 180px;
-    margin: 0 auto 1rem;
+    width: min(260px, 78vw);
+    height: min(260px, 78vw);
+    margin: 0 auto;
   }
 
-  #profile .section__pic-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  /* TEXT: scale down */
-  .section__text__p1 {
-    font-size: 0.9rem;
+  #profile {
+    gap: 1.25rem;
   }
 
   .title {
     font-size: 1.75rem;
-    line-height: 1.15;
   }
 
-  .section__text__p2 {
-    font-size: 1.05rem;
-    margin-bottom: 0.75rem;
-  }
-
-  /* BUTTONS: avoid too wide + reduce padding */
   .btn {
     max-width: 280px;
-    padding: 0.9rem;
   }
 
-  /* SOCIAL ICONS: slightly smaller */
-  #socials-container .icon {
-    height: 1.75rem;
+  /* ✅ Gmail button font size (mobile) */
+  #contact .gmail-btn {
+    font-size: 14px;
   }
 }
 
 /* =========================
-   320px BELOW (EXTRA SMALL MOBILE)
+   320px BELOW
    ========================= */
 @media screen and (max-width: 320px) {
-  /* NAV: even tighter */
+
   nav {
     padding: 0 0.75rem;
   }
 
   .logo {
     font-size: 1.1rem;
-    max-width: 70%;
   }
 
-  /* PROFILE: tighter */
-  #profile {
-    padding-top: 2rem; /* ✅ keep consistent */
-    gap: 1rem;
-  }
-
-  /* IMAGE: smaller */
   #profile .section__pic-container {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 0.75rem;
+    width: min(230px, 76vw);
+    height: min(230px, 76vw);
+    margin: 0 auto;
   }
 
-  /* TEXT: smaller */
-  .section__text__p1 {
-    font-size: 0.85rem;
+  #profile {
+    gap: 1rem;
   }
 
   .title {
     font-size: 1.6rem;
-    line-height: 1.15;
   }
 
-  .section__text__p2 {
-    font-size: 1rem;
-  }
-
-  /* BUTTONS: full width but not overflowing */
   .btn {
     max-width: 260px;
-    padding: 0.85rem;
   }
 
-  /* SOCIALS */
-  #socials-container .icon {
-    height: 1.6rem;
+  #about {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #contact .contact-info-container {
+    font-size: 0.85rem;
+    padding: 0.65rem 0.9rem;
+  }
+
+  #contact .contact-info-container img {
+    height: 1.35rem;
+    width: 1.35rem;
+  }
+
+  /* ✅ Gmail button font size (mobile) */
+  #contact .gmail-btn {
+    font-size: 15px;
   }
 }

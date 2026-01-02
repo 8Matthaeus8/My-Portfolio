@@ -64,10 +64,6 @@ nav {
 }
 
 /* ✅ Fix the white gap on anchor click (Contact/About/etc.) */
-body {
-  padding-top: var(--nav-height);
-}
-
 section {
   scroll-margin-top: var(--nav-height);
 }
@@ -547,6 +543,8 @@ article {
   margin: 0;                     /* remove auto-centering */
   padding-left: 0;
   padding-right: 0;
+  padding-top: calc(5vh + 10px);
+  padding-bottom: calc(5vh + 10px);
 
   background-color: #F2F2F2;
   position: relative;
@@ -652,7 +650,7 @@ article {
 }
 
 /* ===============================
-   EXPERTISE & EDUCATION TIMELINES
+   EXPERTISE & EDUCATION TIMELINES (UPDATED + ALIGNED)
    =============================== */
 
 .expertise-education-wrapper {
@@ -675,12 +673,29 @@ article {
   text-align: left;
 }
 
-/* Timeline */
+/* Timeline (✅ line + marker always aligned) */
 .timeline-v2 {
   position: relative;
-  padding-left: 30px;
-  border-left: 2px solid #1E3A8A;
-  margin-left: 10px;
+
+  --tl-x: 12px;      /* X position of the blue line */
+  --tl-pad: 40px;    /* left padding space for content */
+
+  padding-left: var(--tl-pad);
+  margin-left: 0;
+
+  border-left: none; /* we draw the line below */
+}
+
+/* draw the blue line */
+.timeline-v2::before {
+  content: "";
+  position: absolute;
+  left: var(--tl-x);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1E3A8A;
+  border-radius: 2px;
 }
 
 .timeline-v2-item {
@@ -688,10 +703,15 @@ article {
   margin-bottom: 2.5rem;
 }
 
+/* ✅ marker positioned relative to the LINE, not the card */
 .timeline-v2-marker {
   position: absolute;
-  left: -38px;
+
+  /* line position relative to item = tl-x - tl-pad */
+  left: calc(var(--tl-x) - var(--tl-pad));
   top: 25px;
+  transform: translateX(-50%);
+
   width: 14px;
   height: 14px;
   background-color: #1E3A8A;
@@ -727,7 +747,6 @@ article {
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
 
-  /* ✅ FIX: keep "May 2025" on ONE LINE */
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -746,8 +765,6 @@ article {
   font-size: 0.95rem;
   line-height: 1.6;
 }
-
-
 
 /* ===============================
    SKILLS SECTION
@@ -844,6 +861,10 @@ article {
 
 #projects {
   position: relative;
+
+  /* ✅ Prevent any inner “scroll container” behavior */
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 /* ✅ Personal Project title = blue */
@@ -854,6 +875,19 @@ article {
 /* ✅ Rescuer Side / Admin Side / Modals subtitles = black */
 #projects .experience-sub-title {
   color: #000000;
+}
+
+/* ✅ FIX: stop Rescuer/Admin/Modals containers from being scrollable */
+#projects .experience-details-container,
+#projects .experience-details-container .about-containers {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+
+  /* ✅ helps mobile “scroll grab” */
+  -webkit-overflow-scrolling: auto !important;
+  overscroll-behavior: auto;
+  touch-action: pan-y;
 }
 
 #projects .experience-details-container .about-containers {
@@ -958,7 +992,6 @@ article {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-
 /* MODAL STYLES */
 .image-overlay {
   position: fixed;
@@ -1006,6 +1039,7 @@ article {
   font-size: 2rem;
   cursor: pointer;
 }
+
 
 /* =========================
    CONTACT SECTION – CENTERED (KEEP SAME LOOK)
