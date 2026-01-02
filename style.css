@@ -10,9 +10,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  padding-top: 72px;
+  padding-top: var(--nav-height);
 }
-
 
 html {
   scroll-behavior: smooth;
@@ -291,7 +290,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  scroll-margin-top: 90px;
+  scroll-margin-top: var(--nav-height);
 }
 
 .section-container {
@@ -331,15 +330,6 @@ section {
 }
 
 /* Base button variants — structure only */
-.btn-color-1,
-.btn-color-2 {
-  background: transparent;
-  border: 0.1rem solid rgb(53, 53, 53);
-  color: inherit;
-}
-
-
-/* Base button variants: structure only (NO colors here) */
 .btn-color-1,
 .btn-color-2 {
   background: transparent;
@@ -389,18 +379,17 @@ article {
    ========================= */
 
 #profile {
-  /* ✅ Break out of global section max-width so background is FULL WIDTH */
   width: 100%;
   max-width: none;
   margin: 0;
 
-  /* ✅ Full hero height (minus fixed navbar height) */
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - var(--nav-height));
+  scroll-margin-top: var(--nav-height);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* ✅ center content vertically */
+  justify-content: center;
 
   gap: 2rem;
   padding: 4rem 1.5rem;
@@ -1050,7 +1039,7 @@ article {
   max-width: none;
   margin: 0;
 
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - var(--nav-height));
 
   display: flex;
   flex-direction: column;
@@ -1097,16 +1086,17 @@ article {
   align-items: center;
   gap: 0.75rem;
 
+  padding: 0.6rem 0.75rem;
+  margin-top: 0;
+
+  width: fit-content;        /* ✅ hug content */
+  max-width: 100%;           /* ✅ never overflow screen */
+  flex-wrap: wrap;           /* ✅ allow wrapping if needed */
+
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-
-  padding: 0.6rem 0.75rem;
-  margin-top: 0; /* ✅ don't push it down too far */
-  width: max-content;
-  max-width: 100%;
-  flex-wrap: wrap;
 }
 
 /* ✅ Copyright pinned to bottom */
@@ -1130,30 +1120,6 @@ article {
   #contact {
     padding: 0 1.25rem;
   }
-}
-
-
-/* =========================
-   CONTACT BOX
-   ========================= */
-
-#contact .contact-info-upper-container {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-
-  margin-top: 1rem;
-  padding: 0.6rem 0.75rem;
-
-  width: max-content;
-  max-width: 100%;
-  flex-wrap: wrap;
 }
 
 /* =========================
@@ -1250,16 +1216,4 @@ article {
 .contact-info-container * {
   -webkit-tap-highlight-color: transparent;
   outline: none;
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media screen and (max-width: 600px) {
-  #contact {
-    scroll-margin-top: calc(10vh + 24px);
-    min-height: calc(100vh - 10vh);
-    padding: 0 1.25rem;
-  }
 }
