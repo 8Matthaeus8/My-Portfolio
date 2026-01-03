@@ -1,4 +1,12 @@
 // ================================
+// Prevent scrollbar flash on refresh (loading lock)
+// ================================
+document.documentElement.classList.add("is-loading");
+window.addEventListener("load", () => {
+  document.documentElement.classList.remove("is-loading");
+});
+
+// ================================
 // HAMBURGER MENU (with close anim)
 // ================================
 function toggleMenu() {
@@ -35,7 +43,8 @@ function viewFullImage(button) {
 
   if (!projectImg) return;
 
-  const fullImageUrl = projectImg.getAttribute("data-full-image") || projectImg.src;
+  const fullImageUrl =
+    projectImg.getAttribute("data-full-image") || projectImg.src;
 
   // Create overlay
   const overlay = document.createElement("div");

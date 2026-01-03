@@ -8,6 +8,12 @@
   box-sizing: border-box;
 }
 
+/* Prevent scrollbar flash during initial load */
+html.is-loading,
+body.is-loading {
+  overflow: hidden;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   padding-top: var(--nav-height);
@@ -860,9 +866,11 @@ article {
 #projects {
   position: relative;
   overflow-x: hidden;
-  overflow-y: visible;
 
-  /* ✅ prevents iOS "scroll container" feel */
+  /* ✅ prevent scrollbar flash during reveal */
+  overflow-y: hidden;
+
+  /* keep natural scrolling behavior */
   overscroll-behavior: auto;
 }
 
