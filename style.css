@@ -1,5 +1,3 @@
-/* GENERAL */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
@@ -27,17 +25,15 @@ p {
   color: rgb(85, 85, 85);
 }
 
-/* TRANSITION */
-
+/* Transition */
 a,
 .btn {
   transition: all 300ms ease;
 }
 
-/* DESKTOP NAV */
-
+/* Desktop Nav */
 :root {
-  --nav-height: 100px; /* ✅ single source of truth */
+  --nav-height: 100px;
 }
 
 nav,
@@ -56,8 +52,8 @@ nav {
 
   background-color: #1E3A8A;
 
-  height: var(--nav-height);     /* ✅ uses variable */
-  min-height: var(--nav-height); /* ✅ prevents shrink */
+  height: var(--nav-height);
+  min-height: var(--nav-height);
   padding: 0 24px;
 
   box-shadow: none;
@@ -115,14 +111,14 @@ nav {
   width: 100%;
 }
 
-/* Active link (add class="active" in JS/HTML) */
+/* Active link */
 .nav-links li a.active::after {
   width: 100%;
 }
 
-/* =========================
+/*
    HAMBUGER MENU
-   ========================= */
+*/
 
 #hamburger-nav {
   display: none;
@@ -146,11 +142,11 @@ nav {
 .hamburger-icon span {
   width: 100%;
   height: 2px;
-  background-color: #ffffff; /* ✅ white lines on blue navbar */
+  background-color: #ffffff;
   transition: transform 260ms ease, opacity 200ms ease;
 }
 
-/* Dropdown container (ANIMATED) */
+/* Dropdown container (Animated) */
 .menu-links {
   position: absolute;
   top: calc(100% + 10px);
@@ -160,7 +156,7 @@ nav {
   border-radius: 16px;
   padding: 10px;
 
-  width: 220px; /* ✅ consistent dropdown width */
+  width: 220px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(0, 0, 0, 0.06);
 
@@ -206,7 +202,7 @@ nav {
   transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
 }
 
-/* ✅ hover + tap + keyboard = royal blue */
+/* hover + tap + keyboard = royal blue */
 .menu-links a:hover,
 .menu-links a:active,
 .menu-links a:focus-visible {
@@ -218,7 +214,7 @@ nav {
 .menu-links li {
   list-style: none;
 
-  /* ✅ stagger setup */
+  /* Stagger setup */
   opacity: 0;
   transform: translateY(-6px);
   transition: transform 240ms ease, opacity 240ms ease;
@@ -249,7 +245,7 @@ nav {
   transform: rotate(-45deg) translate(8px, -6px);
 }
 
-/* closing state (optional) */
+/* Closing state */
 #hamburger-nav .menu-links.closing {
   opacity: 0;
   transform: translateY(-10px) scale(0.98);
@@ -261,7 +257,7 @@ nav {
     visibility 0s linear 260ms;
 }
 
-/* ✅ Ensure the two navs are fixed and always on top */
+/* Ensure the two navs are fixed and always on top */
 #desktop-nav,
 #hamburger-nav {
   position: fixed;
@@ -272,22 +268,22 @@ nav {
   background-color: #1E3A8A;
 }
 
-/* ✅ Keep hamburger dropdown above content */
+/* Keep hamburger dropdown above content */
 #hamburger-nav .menu-links {
   z-index: 10000;
 }
 
-/* =========================
-   GLOBAL SECTION (SAFE ONLY)
-   ========================= */
+/*
+   Global Section
+*/
 
 section {
   scroll-margin-top: var(--nav-height);
 }
 
-/* =========================
-   SECTION LAYOUT (NEW SYSTEM)
-   ========================= */
+/*
+   Section Layout
+*/
 
 .section-layout {
   padding-top: 6vh;
@@ -307,16 +303,16 @@ section {
   width: 100%;
 }
 
-/* ICONS */
+/* Icons */
 
 .icon {
   cursor: pointer;
   height: 2rem;
 }
 
-/* =========================
-   BUTTONS (GLOBAL BASE ONLY)
-   ========================= */
+/*
+   Global Buttons
+*/
 
 .btn-container {
   display: flex;
@@ -346,7 +342,9 @@ section {
   color: inherit;
 }
 
-/* EXPERIENCE SECTION (Detailed) */
+/*
+Experience Section
+*/
 
 #experience {
   position: relative;
@@ -383,9 +381,9 @@ article {
 }
 
 
-/* =========================
-   PROFILE SECTION – STYLING (UPDATED)
-   ========================= */
+/*
+   Profile Section
+*/
 
 #profile {
   width: 100%;
@@ -408,7 +406,7 @@ article {
   z-index: 1;
 }
 
-/* ✅ Dark overlay for better text visibility */
+/* Dark overlay for better text visibility */
 #profile::before {
   content: "";
   position: absolute;
@@ -417,7 +415,7 @@ article {
   z-index: 0;
 }
 
-/* ✅ Keep all content above the overlay */
+/* Keep all content above the overlay */
 #profile > * {
   position: relative;
   z-index: 1;
@@ -437,7 +435,6 @@ article {
   border-radius: 50%;
 }
 
-/* ✅ Make hero text readable */
 #profile .section__text {
   text-align: center;
   color: #ffffff;
@@ -448,7 +445,6 @@ article {
   color: #ffffff;
 }
 
-/* ✅ Name color (white for visibility on hero bg) */
 #profile .title {
   color: #ffffff;
 }
@@ -466,7 +462,7 @@ article {
   margin-bottom: 1.5rem;
 }
 
-/* ✅ Buttons: base style (outlined) */
+/* Buttons: base style (outlined) */
 #profile .btn-color-1,
 #profile .btn-color-2 {
   background-color: transparent;
@@ -480,14 +476,14 @@ article {
     box-shadow 300ms ease;
 }
 
-/* ✅ Download CV = primary (blue fill + white text) */
+/* Download CV = primary (blue fill + white text) */
 #profile .btn-color-1 {
   background-color: #1E3A8A;
   color: #ffffff;
   border-color: #1E3A8A;
 }
 
-/* ✅ Hover animation (Royal Blue) */
+/* Hover animation (Royal Blue) */
 #profile .btn-color-1:hover {
   background-color: #2563EB;
   border-color: #2563EB;
@@ -496,7 +492,7 @@ article {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-/* ✅ Contact Info hover (Royal Blue) */
+/* Contact Info hover (Royal Blue) */
 #profile .btn-color-2:hover {
   background-color: #2563EB;
   border-color: #2563EB;
@@ -505,7 +501,7 @@ article {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-/* Default: WHITE icons */
+/* Default: White icons */
 #profile #socials-container .icon {
   filter: brightness(0) saturate(100%)
     invert(100%) sepia(0%) saturate(0%)
@@ -513,7 +509,7 @@ article {
   transition: transform 300ms ease, filter 300ms ease;
 }
 
-/* Hover: LINKEDIN BLUE (#0A66C2) */
+/* Hover: LinkedIn Blue (#0A66C2) */
 #profile #socials-container .icon:hover {
   transform: translateY(-3px);
   filter: brightness(0) saturate(100%)
@@ -530,14 +526,13 @@ article {
 }
 
 
-/* ===============================
-   ABOUT SECTION
-   =============================== */
+/*
+   About Section
+*/
 #about {
-  /* ✅ FULL-WIDTH BAND */
   width: 100%;
-  max-width: none;               /* break out of section max-width */
-  margin: 0;                     /* remove auto-centering */
+  max-width: none;
+  margin: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: calc(5vh + 10px);
@@ -550,10 +545,10 @@ article {
   align-items: center;
 }
 
-/* ✅ keep the content aligned like other sections */
+/* Keep the content aligned like other sections */
 #about > * {
   width: 100%;
-  max-width: 1300px;             /* match your section max-width */
+  max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -646,9 +641,9 @@ article {
   width: 100%;
 }
 
-/* ===============================
-   EXPERTISE & EDUCATION TIMELINES (UPDATED + ALIGNED)
-   =============================== */
+/*
+   EXPERTISE & EDUCATION TIMELINES
+*/
 
 .expertise-education-wrapper {
   display: flex;
@@ -670,20 +665,20 @@ article {
   text-align: left;
 }
 
-/* Timeline (✅ line + marker always aligned) */
+/* Timeline (line + marker always aligned) */
 .timeline-v2 {
   position: relative;
 
-  --tl-x: 12px;      /* X position of the blue line */
-  --tl-pad: 40px;    /* left padding space for content */
+  --tl-x: 12px;
+  --tl-pad: 40px;
 
   padding-left: var(--tl-pad);
   margin-left: 0;
 
-  border-left: none; /* we draw the line below */
+  border-left: none;
 }
 
-/* draw the blue line */
+/* Blue Line */
 .timeline-v2::before {
   content: "";
   position: absolute;
@@ -700,11 +695,11 @@ article {
   margin-bottom: 2.5rem;
 }
 
-/* ✅ marker positioned relative to the LINE, not the card */
+/* Marker positioned relative to the LINE, not the card */
 .timeline-v2-marker {
   position: absolute;
 
-  /* line position relative to item = tl-x - tl-pad */
+  /* Line position relative to item = tl-x - tl-pad */
   left: calc(var(--tl-x) - var(--tl-pad));
   top: 25px;
   transform: translateX(-50%);
@@ -726,13 +721,13 @@ article {
   text-align: left;
 }
 
-/* Timeline header */
+/* Timeline Header */
 .card-header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
-  gap: 1rem; /* ✅ prevents tight squeeze on long titles */
+  gap: 1rem;
 }
 
 .card-date-tag {
@@ -763,18 +758,17 @@ article {
   line-height: 1.6;
 }
 
-/* ===============================
-   SKILLS SECTION
-   =============================== */
+/*
+   Skills Section
+*/
 
 #skills {
   padding-bottom: 5rem;
   position: relative;
 }
 
-/* ✅ Skills main title */
 #skills .title {
-  color: #1E3A8A; /* Blue */
+  color: #1E3A8A;
 }
 
 .skills-wrapper {
@@ -784,12 +778,10 @@ article {
   margin-top: 2rem;
 }
 
-/* ✅ Category titles */
 #skills .experience-sub-title {
-  color: #000000; /* Black */
+  color: #000000;
 }
 
-/* ✅ Base row styling */
 .skills-row {
   display: flex;
   justify-content: center;
@@ -799,21 +791,18 @@ article {
   width: 100%;
 }
 
-/* ✅ Limit width ONLY for short rows (Quality Assurance) */
 #skills > .skills-row {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Skill card */
 .skill-card {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Skill oval */
 .skill-oval {
   height: calc(180px + (var(--percent) * 0.8px));
   width: 140px;
@@ -853,38 +842,32 @@ article {
 }
 
 #skills .skill-percent {
-  font-size: 1.25rem;   /* ⬆ larger */
-  font-weight: 800;     /* extra bold */
+  font-size: 1.25rem;
+  font-weight: 800;
   color: #000000;
   margin-top: 0.3rem;
 }
 
-/* =========================
-   PROJECTS SECTION (CLEAN & CONSISTENT)
-   ========================= */
+/*
+   Projects Section
+*/
 
 #projects {
   position: relative;
   overflow-x: hidden;
-
-  /* ✅ prevent scrollbar flash during reveal */
   overflow-y: hidden;
-
-  /* keep natural scrolling behavior */
   overscroll-behavior: auto;
 }
 
-/* ✅ Personal Project title = blue */
 #projects .title {
   color: #1E3A8A;
 }
 
-/* ✅ Rescuer Side / Admin Side / Modals subtitles = black */
 #projects .experience-sub-title {
   color: #000000;
 }
 
-/* ✅ HARD STOP: nothing inside Projects can become a scroll container */
+/* Nothing inside Projects can become a scroll container */
 #projects .experience-details-container,
 #projects .experience-details-container .about-containers,
 #projects .details-container {
@@ -892,13 +875,13 @@ article {
   max-height: none !important;
   overflow: visible !important;
 
-  /* ✅ remove "scroll grabbing" behaviors */
+  /* Remove "scroll grabbing" behaviors */
   -webkit-overflow-scrolling: auto !important;
   overscroll-behavior: auto !important;
   touch-action: auto !important;
 }
 
-/* ✅ Grid layout (desktop: 3 per row) */
+/* Grid layout (desktop: 3 per row) */
 #projects .experience-details-container .about-containers {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -911,14 +894,12 @@ article {
   align-items: start;
 }
 
-/* ✅ Cards use natural height */
 #projects .details-container {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* ✅ Image box (fixed height desktop) */
 #projects .article-container {
   width: 100%;
   height: 260px;
@@ -928,10 +909,10 @@ article {
   justify-content: center;
 
   overflow: hidden;
-  border-radius: 2rem; /* ✅ keep border consistent with image */
+  border-radius: 2rem;
 }
 
-/* ✅ Image sizing */
+/* Image sizing */
 #projects .project-img {
   width: 100%;
   height: 100%;
@@ -941,7 +922,7 @@ article {
   display: block;
 }
 
-/* ✅ Titles/buttons */
+/* Titles/buttons */
 #projects .project-title {
   margin: 1rem 0;
   color: black;
@@ -954,9 +935,9 @@ article {
   gap: 1rem;
 }
 
-/* =========================
-   PROJECT BUTTON STYLES
-   ========================= */
+/*
+   Project Button Styles
+*/
 
 #projects .btn.btn-color-1 {
   background-color: #1E3A8A;
@@ -1002,9 +983,9 @@ article {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-/* =========================
-   MODAL STYLES
-   ========================= */
+/*
+   Modal Styles
+*/
 
 .image-overlay {
   position: fixed;
@@ -1054,9 +1035,9 @@ article {
 }
 
 
-/* =========================
-   CONTACT SECTION – CENTERED (KEEP SAME LOOK)
-   ========================= */
+/*
+  Contact Section
+*/
 
 #contact {
   width: 100%;
@@ -1068,7 +1049,7 @@ article {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* ✅ center the whole block */
+  justify-content: center;
 
   text-align: center;
 
@@ -1092,7 +1073,7 @@ article {
   z-index: 1;
 }
 
-/* ✅ Keep the exact spacing/appearance like your screenshot */
+/* Keep the exact spacing/appearance like your screenshot */
 #contact .section__text__p1 {
   color: #ffffff;
   margin-bottom: 0.25rem;
@@ -1109,7 +1090,7 @@ article {
   word-break: break-word;
 }
 
-/* ✅ Contact pill stays exactly like the screenshot */
+/* Contact pill stays exactly like the screenshot */
 #contact .contact-info-upper-container {
   display: inline-flex;
   justify-content: center;
@@ -1119,9 +1100,9 @@ article {
   padding: 0.6rem 0.75rem;
   margin-top: 0;
 
-  width: fit-content;        /* ✅ hug content */
-  max-width: 100%;           /* ✅ never overflow screen */
-  flex-wrap: wrap;           /* ✅ allow wrapping if needed */
+  width: fit-content;
+  max-width: 100%;
+  flex-wrap: wrap;
 
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.35);
@@ -1129,7 +1110,7 @@ article {
   backdrop-filter: blur(10px);
 }
 
-/* ✅ Copyright pinned to bottom */
+/* Copyright pinned to bottom */
 #contact .copyright {
   position: absolute;
   bottom: 1.5rem;
@@ -1142,9 +1123,9 @@ article {
   width: 100%;
 }
 
-/* =========================
-   MOBILE
-   ========================= */
+/*
+   Mobile
+*/
 
 @media screen and (max-width: 600px) {
   #contact {
@@ -1152,10 +1133,7 @@ article {
   }
 }
 
-/* =========================
-   CONTACT BUTTONS
-   ========================= */
-
+/* Contact Buttons */
 .contact-info-container {
   display: inline-flex;
   align-items: center;
@@ -1191,7 +1169,7 @@ article {
     hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
-/* ✅ Gmail interaction: hover + tap + keyboard */
+/* Gmail interaction: hover + tap + keyboard */
 .gmail-btn:hover,
 .gmail-btn:active,
 .gmail-btn:focus-visible {
@@ -1215,7 +1193,7 @@ article {
     hue-rotate(216deg) brightness(90%) contrast(95%);
 }
 
-/* ✅ LinkedIn interaction: hover + tap + keyboard */
+/* LinkedIn interaction: hover + tap + keyboard */
 .linkedin-btn:hover,
 .linkedin-btn:active,
 .linkedin-btn:focus-visible {
@@ -1226,7 +1204,7 @@ article {
   box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
 }
 
-/* ✅ LinkedIn icon turns white on interaction */
+/* LinkedIn icon turns white on interaction */
 .linkedin-btn:hover img,
 .linkedin-btn:active img,
 .linkedin-btn:focus-visible img {

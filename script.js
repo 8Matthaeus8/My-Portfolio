@@ -1,14 +1,10 @@
-// ================================
 // Prevent scrollbar flash on refresh (loading lock)
-// ================================
 document.documentElement.classList.add("is-loading");
 window.addEventListener("load", () => {
   document.documentElement.classList.remove("is-loading");
 });
 
-// ================================
 // HAMBURGER MENU (with close anim)
-// ================================
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
   const icon = document.querySelector(".hamburger-icon");
@@ -33,9 +29,7 @@ function toggleMenu() {
   }, 260);
 }
 
-// ================================
 // VIEW FULL IMAGE (modal overlay)
-// ================================
 function viewFullImage(button) {
   const projectImg = button
     .closest(".details-container")
@@ -89,13 +83,9 @@ function viewFullImage(button) {
   );
 }
 
-// ===================================================
 // DOMContentLoaded: ScrollReveal + Active Nav + Modals
-// ===================================================
 document.addEventListener("DOMContentLoaded", () => {
-  // ----------------
   // ScrollReveal
-  // ----------------
   if (typeof ScrollReveal !== "undefined") {
     const sr = ScrollReveal({
       origin: "bottom",
@@ -118,9 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
     sr.reveal(".details-container", { interval: 200 });
   }
 
-  // -----------------------------------------
-  // DESCRIPTION MODAL (fix Description buttons)
-  // -----------------------------------------
+
+  // Description Modal
   const descOverlay = document.getElementById("descOverlay");
   const descClose = document.getElementById("descClose");
   const descTitle = document.getElementById("descTitle");
@@ -142,9 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
   };
 
-  // ✅ Supports BOTH:
-  // 1) your old inline onclick="viewDescription(this,'...')"
-  // 2) the cleaner data-* buttons (.project-desc-btn)
   window.viewDescription = (btn, text) => {
     const title =
       btn?.closest(".details-container")?.querySelector(".project-title")
@@ -152,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     openDesc(title, text);
   };
 
-  // ✅ New recommended way: <button class="project-desc-btn" data-title="" data-description="">
+  // New recommended way: <button class="project-desc-btn" data-title="" data-description="">
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".project-desc-btn");
     if (!btn) return;
@@ -176,9 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") closeDesc();
   });
 
-  // ----------------------------
   // Active nav underline on scroll
-  // ----------------------------
   const sections = document.querySelectorAll("section");
   const navLinksDesktop = document.querySelectorAll(".nav-links a");
   const navLinksMobile = document.querySelectorAll(".menu-links a");
@@ -193,9 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // ----------------------------
   // Hamburger close helpers
-  // ----------------------------
   const menu = document.querySelector(".menu-links");
   const icon = document.querySelector(".hamburger-icon");
   const hamburgerMenu = document.querySelector(".hamburger-menu");
@@ -215,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // ✅ Click nav links: underline + close hamburger
+  // Click nav links: underline + close hamburger
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       manualTargetId = link.getAttribute("href").replace("#", "");
@@ -224,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ✅ Observe sections for underline update
+  // Observe sections for underline update
   const observer = new IntersectionObserver(
     (entries) => {
       if (manualTargetId) {
@@ -250,11 +232,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((section) => observer.observe(section));
 
-  // ✅ Correct underline on refresh
+  // Correct underline on refresh
   const currentHash = window.location.hash.replace("#", "");
   setActive(currentHash || "profile");
 
-  // ✅ Close hamburger when clicking outside
+  // Close hamburger when clicking outside
   document.addEventListener("click", (e) => {
     if (!menu || !icon || !hamburgerMenu) return;
 
